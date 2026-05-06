@@ -2,10 +2,10 @@ function [Nh, R_std, R_bic, cap1, cap2, win_ind] = nnls_mat(S, Lwin, Lovp, Nmax)
 %NNLS_MAT Calculates selected connectivity measures between each pair of 
 %         signals with a sliding window.
 %
-%   [Nh, R_std, R_bic, cap, ind] = nnls_mat(S, Lwin, Lovp, Nmax) 
+%   [Nh, R_std, R_bic, cap1, cap2, ind] = nnls_mat(S, Lwin, Lovp, Nmax) 
 %   performs non-negative least squares regression for each pair of column 
 %   vectors of S with a sliding window of length Lwin, and returns the 
-%   connectivity measures Nh, R_std, R_bic, and cap, and the starting index
+%   connectivity measures Nh, R_std, R_bic, and cap1-2, and the starting index
 %   of each window ind.
 %
 %   Input Arguments:
