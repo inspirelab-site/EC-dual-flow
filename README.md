@@ -307,21 +307,6 @@ The DualNet estimator is trained as part of the capacity-estimation procedure fo
 
 ---
 
-## Citation
-
-If you use this code, please cite:
-
-```bibtex
-@misc{jian2026distributionawarecc,
-  title  = {Beyond Gaussian Assumptions in Brain Effective Connectivity: Distribution-Aware Channel Capacity with Adversarial Flows},
-  author = {Jian, Jianan and Multezem, Nurahmed and Li, Benjamin and Kang, Jacob and Xu, Nan},
-  year   = {2026},
-  note   = {Code: https://github.com/inspirelab-site/cc-estimation}
-}
-```
-
----
-
 ## License
 
 Please add a license before public release.
