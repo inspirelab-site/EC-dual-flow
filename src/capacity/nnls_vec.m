@@ -1,9 +1,9 @@
 function [Nh, R_std, R_AICc, cap1, cap2] = nnls_vec(x, y, Nmax)
 %NNLS_VEC Calculates selected connectivity measures between two signals.
 %
-%   [Nh, R_std, R_AICc, cap] = nnls_vec(x, y, Nmax) performs non-negative 
+%   [Nh, R_std, R_AICc, cap1, cap2] = nnls_vec(x, y, Nmax) performs non-negative 
 %   least squares regression of y on x, and returns the connectivity 
-%   measures Nh, R_std, R_AICc, and cap.
+%   measures Nh, R_std, R_AICc, and cap1-2.
 %
 %   Input Arguments:
 %       x - The regressor signal, a column vector.
