@@ -56,11 +56,9 @@ cc-estimation-anonymous/
 ├── data/
 │   └── example_data.mat
 ├── results/
-├── docs/
-│   ├── data_format.md
-│   └── troubleshooting.md
-└── tests/
-    └── test_smoke.m
+└── docs/
+    ├── data_format.md
+    └── troubleshooting.md
 ```
 
 ---
@@ -272,26 +270,6 @@ results/
 Large datasets and generated result files should not be committed directly to the anonymized code package. For review, use small synthetic or anonymized examples when possible.
 
 ---
-
-## Testing
-
-A lightweight smoke test is provided in:
-
-```text
-tests/test_smoke.m
-```
-
-Run from MATLAB:
-
-```matlab
-startup
-runtests('tests')
-```
-
-This checks that the main pipeline can run on synthetic data and returns the expected output fields.
-
----
-
 ## Notes on Pretrained Models
 
 No pretrained model is required for the current implementation.
