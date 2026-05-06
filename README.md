@@ -1,6 +1,6 @@
 # Distribution-Aware Channel Capacity for Effective Connectivity
 
-Anonymous MATLAB implementation for estimating effective connectivity from multivariate brain time-series data using a distribution-aware channel-capacity estimator, with the Gaussian channel-capacity pairwise Granger causality as a baseline.
+Anonymous MATLAB implementation for estimating effective connectivity from multivariate brain time-series data. The repository implements the proposed distribution-aware channel-capacity estimator and includes Gaussian channel capacity and pairwise Granger causality as baseline methods.
 
 This repository is submitted as anonymized supplementary code for double-blind review.
 
