@@ -1,18 +1,14 @@
 # Distribution-Aware Channel Capacity for Brain Effective Connectivity
 
-MATLAB implementation for estimating effective connectivity from multivariate brain time-series data using Gaussian and empirical distribution-aware channel-capacity estimators, with pairwise Granger causality as a baseline.
+Anonymous MATLAB implementation for estimating effective connectivity from multivariate brain time-series data using Gaussian and empirical distribution-aware channel-capacity estimators, with pairwise Granger causality as a baseline.
 
-This repository accompanies the paper:
-
-**Beyond Gaussian Assumptions in Brain Effective Connectivity: Distribution-Aware Channel Capacity with Adversarial Flows**
-
-Authors: Jianan Jian, Nurahmed Multezem, Benjamin Li, Jacob Kang, Nan Xu
+This repository is submitted as anonymized supplementary code for double-blind review.
 
 ---
 
 ## Overview
 
-Effective-connectivity estimation from brain-signal measurements often relies on Gaussian residual assumptions. This repository provides code for estimating directed interactions using a finite-impulse-response channel model and comparing:
+Effective-connectivity estimation from brain-signal measurements often relies on Gaussian residual assumptions. This code estimates directed interactions using a finite-impulse-response channel model and compares:
 
 1. **Gaussian channel capacity**  
    Capacity estimated under a Gaussian residual-noise assumption.
@@ -36,11 +32,10 @@ where each column is the time series of one ROI.
 ## Repository Structure
 
 ```text
-cc-estimation/
+cc-estimation-anonymous/
 ├── README.md
 ├── startup.m
 ├── requirements.md
-├── CITATION.cff
 ├── src/
 │   ├── capacity/
 │   │   ├── nnls_mat.m
@@ -90,12 +85,7 @@ See `requirements.md` for additional notes.
 
 ## Installation
 
-Clone or download this repository.
-
-```bash
-git clone https://github.com/inspirelab-site/cc-estimation.git
-cd cc-estimation
-```
+Download or unzip the anonymized supplementary code package.
 
 In MATLAB, move to the repository root and run:
 
@@ -114,7 +104,7 @@ which granger_cause
 which estimate_effective_connectivity
 ```
 
-You should see paths pointing to the corresponding files inside the repository.
+You should see paths pointing to the corresponding files inside the anonymized code package.
 
 ---
 
@@ -176,6 +166,8 @@ size(data)
 %        1200         100
 ```
 
+For blind review, the included `example_data.mat` should be synthetic, anonymized, or otherwise non-identifying.
+
 ---
 
 ## Running on Your Own Data
@@ -220,14 +212,13 @@ The output `.mat` file contains:
 | `Nh` | Selected FIR model order |
 | `R_std` | Standard correlation-related summary from the FIR fitting stage |
 | `R_bic` | BIC-based model-fit summary |
-| `win_ind` | Window indices, when sliding-window estimation is used |
 | `params` | Parameters used for the run |
 
 ---
 
 ## Direction Convention
 
-For Granger causality, this repository uses the convention:
+For Granger causality, this code uses the convention:
 
 ```matlab
 GC(source, target) = source -> target
@@ -253,7 +244,9 @@ The direction convention for the channel-capacity matrices follows the implement
 
 ## Reproducing Paper Results
 
-The full paper experiments may require external or restricted datasets. After obtaining and preprocessing the relevant datasets, edit the paths in:
+The full paper experiments may require external or restricted datasets. To preserve anonymity during review, identifying dataset paths, institutional storage links, and author-specific repository links are not included here.
+
+After obtaining and preprocessing the relevant datasets, edit the paths in:
 
 ```text
 scripts/reproduce_results.m
@@ -272,11 +265,11 @@ Suggested experiment organization:
 results/
 ├── demo/
 ├── hcp_motor/
-├── rat_lfp_bold/
-└── mouse_ca_fmri/
+├── lfp_bold/
+└── calcium_fmri/
 ```
 
-Large datasets and generated result files should not be committed directly to GitHub. Use dataset accession links, institutional storage, GitHub Releases, or Zenodo for large files.
+Large datasets and generated result files should not be committed directly to the anonymized code package. For review, use small synthetic or anonymized examples when possible.
 
 ---
 
@@ -303,21 +296,30 @@ This checks that the main pipeline can run on synthetic data and returns the exp
 
 No pretrained model is required for the current implementation.
 
-The DualNet estimator is trained as part of the capacity-estimation procedure for each fitted channel and residual distribution. If future versions include cached trained models or precomputed outputs, they should be released separately through GitHub Releases, Zenodo, or another archival data repository.
+The DualNet estimator is trained as part of the capacity-estimation procedure for each fitted channel and residual distribution. If future versions include cached trained models or precomputed outputs, they should be released separately after de-anonymization.
+
+---
+
+## Anonymous Citation Placeholder
+
+For blind review, identifying citation information is omitted.
+
+```bibtex
+@misc{anonymous2026distributionawarecc,
+  title  = {Beyond Gaussian Assumptions in Brain Effective Connectivity: Distribution-Aware Channel Capacity with Adversarial Flows},
+  author = {Anonymous},
+  year   = {2026},
+  note   = {Anonymized supplementary code for double-blind review}
+}
+```
 
 ---
 
 ## License
 
-Please add a license before public release.
-
-For academic research-code release, common choices include:
-
-- MIT License
-- BSD 3-Clause License
-- Apache License 2.0
+License information is omitted during anonymous review and will be added in the de-anonymized public release.
 
 ---
-University of Maryland, College Park  
+Contact information is omitted during double-blind review.
 
-Repository: https://github.com/inspirelab-site/cc-estimation
+For questions during the review process, please use the official conference discussion or review system.
