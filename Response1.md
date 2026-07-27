@@ -38,9 +38,9 @@ Dual-flow achieved the highest mean AUROC and sensitivity in all four conditions
 The baselines represent complementary EC frameworks: Granger causality measures linear directed predictability; VAR-LiNGAM uses non-Gaussian innovations for structural identification; and GIMME performs group- and individual-level structural-equation-model search. In contrast, the proposed method estimates channel capacity from the empirical FIR-residual distribution while jointly optimizing the admissible input distribution.
 
 **3. Computational cost.**
-We measured per-scan runtime and peak memory using sequential processing. Dual-flow used one NVIDIA L40S GPU; the CPU methods ran on the same system. Per-scan rather than total runtime is reported because total wall time depends on dataset size and parallelization:
+We measured per-scan runtime and peak memory using sequential processing. Dual-flow used one NVIDIA L40S GPU; the CPU methods ran on the same system. Runtime is reported per directed ROI pair because total wall time depends on the number of scans and directed ROI pairs and the degree of parallelization:
 
-| Method | Time (s)/Scan | RAM (MB) | GPU (MB) |
+| Method | Time (s)/directed ROI pair | RAM (MB) | GPU (MB) |
 |---|---|---|---|
 | Dual-flow | 110.4±161.3 | 2961 | 496 |
 | GCap | .004±.000 | 1661 | -- |
