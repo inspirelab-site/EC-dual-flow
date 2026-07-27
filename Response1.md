@@ -2,13 +2,15 @@
 R1:
 We thank the reviewer for distinguishing validation of non-Gaussian capacity estimation from recovery of directed effective connectivity. We address the four concerns below.
 
-**1. Real-data validation.**
-The tongue-motion experiment was a literature-constrained known-pathway analysis, not an unconstrained exploratory analysis. The expected pathways included contralateral cerebello-cortical and bilateral orofacial sensorimotor interactions [refs]. We will state these hypotheses before presenting the estimates, strengthen their anatomical support, and clarify the statistical criterion for the starred edges. Because human fMRI cannot provide invasive ground truth for every connection, exact known-edge validation is provided by the simulations below.
+**1. Real-data evaluation and neuroscience support.**
+The tongue-motion experiment was not an unconstrained whole-brain exploratory analysis. As described in Appendix C.1, the four tongue ROIs (as shown in Fig. 2B) were defined in a data-specific manner from FSL FEAT tongue-motion activation maps, and their locations corresponded to cerebellar and bilateral orofacial sensorimotor regions previously reported for the HCP motor-task paradigm (Barch et al., NeuroImage, 2013). EC estimation was then restricted to this task-activated network.
+
+Although the task-evoked circuit is well established, human fMRI does not provide ground-truth labels for its exact directed edges. The real-data analysis therefore evaluates whether the estimated interactions are task-sensitive and consistent with established tongue-motion circuitry, rather than serving as definitive ground-truth validation. We now provide new quantitative validation of directed-edge recovery against prespecified ground-truth connectivity on new simulated data (see Point 2).
 
 **2. Known-edge simulations and baselines.**
 We conducted additional controlled stress tests using an adapted implementation of the established Smith et al. BOLD simulation framework with prespecified ground-truth effective-connectivity matrices (NeuroImage, 2011). For the present experiments, we used a TR of 1 s, a 5-min scan duration, and additive two-component Gaussian-mixture measurement noise scaled to an SNR of 10 dB. We evaluated two distinct 5-ROI directed topologies: (i) a chain-with-shortcut network (chain-SC) containing 1->2, 2->3, 3->4, 4->5, and 1->5; and (ii) a diamond DAG (diam) containing 1->2, 1->3, 2->4, 3->4, and 4->5. We additionally evaluated a 3-ROI common-driver topology containing 1->2 and 1->3, but no direct connection between nodes 2 and 3, under equal (0.4 and 0.4) and unequal (0.8 and 0.4) coupling strengths. We generated 50 independent realizations for each condition.
 
-Gaussian capacity (GCap) was a within-framework combined ablation retaining the fitted FIR channel and edge-selection procedure but replacing empirical residual modeling and input-distribution optimization with the Gaussian-capacity calculation. GC, VAR-LiNGAM (LiNGAM), and GIMME were external baselines. All methods used the same ground-truth edges and edge-selection procedure. Entries below are mean $\pm$ SD.
+Gaussian capacity (GCap) was a within-framework combined ablation that retained the fitted FIR channel and edge-selection procedure but replaced empirical residual modeling and input-distribution optimization with the Gaussian-capacity calculation. GC, VAR-LiNGAM (LiNGAM), and GIMME were external baselines. All methods used the same ground-truth edges and edge-selection procedure. Entries below are mean $\pm$ SD.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---:|---:|---:|---:|
