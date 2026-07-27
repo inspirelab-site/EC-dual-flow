@@ -8,32 +8,32 @@ As detailed in Section 4.3, the identified interactions were consistent with est
 **2. Known-edge simulations and broader baselines.**
 We conducted controlled stress tests using the established Smith et al. BOLD simulation framework with prespecified ground-truth EC matrices (Smith et al., NeuroImage, 2011). We configured the framework with TR = 1 s, 5-min scans, and two-component Gaussian-mixture noise at 10 dB SNR. We tested four conditions: a 5-ROI chain with shortcut (1->2->3->4->5; 1->5), a 5-ROI diamond DAG (1->2, 1->3, 2->4, 3->4, 4->5), and a 3-ROI common-driver network (1->2, 1->3; no 2<->3) with equal (.4/.4) or unequal (.8/.4) coupling, using 50 realizations each.
 
-We selected representative EC baselines spanning complementary frameworks with continued use in contemporary neuroimaging, while remaining directly comparable on the same ROI time series and directed ground truth without auxiliary experimental inputs or anatomical priors. Granger Causality (GC) measures linear directed predictability and remains used in multisite and repeat-scan fMRI studies (Zhu et al., 2023; Mellema and Montillo, 2023). VAR-LiNGAM provides non-Gaussian structural identification; LiNGAM-family methods demonstrated effective directionality recovery on Smith simulations (Hyvärinen and Smith, 2013), and VAR-LiNGAM was included in a recent whole-brain fMRI causal-discovery benchmark (Arab et al., 2025). GIMME performs group- and individual-level SEM search; it was validated on Smith-derived networks (Gates and Molenaar, 2012; Sanchez-Romero et al., 2019) and remains used in recent clinical fMRI studies (Murray et al., 2024). These baselines use the same ROI time series while spanning complementary assumptions. Unlike GC, VAR-LiNGAM, and GIMME, which estimate directed predictability or network structure, our framework fits a directional FIR model for each ordered ROI pair and uses the capacity of the resulting FIR-residual channel as the EC metric. Intuitively, this capacity quantifies how much information the fitted X->Y dynamics can transmit despite empirical residual variability. DualNet estimates it without assuming Gaussian residuals while optimizing the admissible input distribution. GCap served as the within-framework ablation, retaining the same FIR channel and edge-selection rule but using Gaussian capacity.
+We selected representative EC baselines spanning complementary frameworks with continued use in neuroimaging that can be applied to the same ROI time series and evaluated against the same directed ground truth without auxiliary experimental inputs or anatomical priors. Granger Causality (GC) measures linear directed predictability and remains used in multisite and repeat-scan fMRI studies (Zhu et al., 2023; Mellema and Montillo, 2023). VAR-LiNGAM provides non-Gaussian structural identification; LiNGAM-family methods demonstrated effective directionality recovery on Smith simulations (Hyvärinen and Smith, 2013), and VAR-LiNGAM was included in a recent whole-brain fMRI causal-discovery benchmark (Arab et al., 2025). GIMME performs group- and individual-level SEM search; it was validated on Smith-derived networks (Gates and Molenaar, 2012; Sanchez-Romero et al., 2019) and remains used in recent clinical fMRI studies (Murray et al., 2024). These baselines use the same ROI time series while spanning complementary assumptions. Unlike GC, VAR-LiNGAM, and GIMME, which estimate directed predictability or network structure, our framework fits a directional FIR model for each ordered ROI pair and uses the capacity of the resulting FIR-residual channel as the EC metric. Intuitively, this capacity quantifies how much information the fitted X->Y dynamics can transmit despite empirical residual variability. DualNet estimates it without assuming Gaussian residuals while optimizing the admissible input distribution. GCap served as the within-framework ablation, retaining the same FIR channel and edge-selection rule but using Gaussian capacity.
 
 All methods were evaluated on the same realizations and directed ground truth, using a consistent rule to obtain binary adjacency matrices where applicable. Entries are mean ± SD.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---|---|---|---|
-| CD-e | Dual-flow | .925 ± .186 | .893 ± .223 | .900 ± .226 | .070 ± .152 |
-|  | GCap | .466 ± .353 | .387 ± .420 | .350 ± .381 | .290 ± .210 |
-|  | LiNGAM | .683 ± .342 | .560 ± .395 | .610 ± .408 | .260 ± .247 |
-|  | GIMME | .498 ± .018 | .000 ± .000 | .000 ± .000 | .005 ± .035 |
-|  | GC | .528 ± .293 | .383 ± .286 | .490 ± .357 | .410 ± .207 |
-| CD-u | Dual-flow | .910 ± .168 | .873 ± .222 | .790 ± .249 | .075 ± .136 |
-|  | GCap | .405 ± .310 | .287 ± .404 | .210 ± .287 | .275 ± .184 |
-|  | LiNGAM | .690 ± .352 | .590 ± .390 | .630 ± .414 | .235 ± .223 |
-|  | GIMME | .750 ± .000 | 1.000 ± .000 | .500 ± .000 | .000 ± .000 |
-|  | GC | .485 ± .297 | .327 ± .301 | .390 ± .354 | .400 ± .202 |
-| Chain | Dual-flow | .895 ± .109 | .691 ± .155 | .828 ± .167 | .136 ± .082 |
-|  | GCap | .492 ± .144 | .310 ± .180 | .320 ± .198 | .224 ± .084 |
-|  | LiNGAM | .684 ± .195 | .460 ± .201 | .580 ± .219 | .248 ± .120 |
-|  | GIMME | .522 ± .051 | .230 ± .419 | .052 ± .097 | .008 ± .022 |
-|  | GC | .506 ± .118 | .251 ± .093 | .380 ± .158 | .379 ± .094 |
-| Diam. | Dual-flow | .888 ± .101 | .653 ± .135 | .836 ± .170 | .156 ± .077 |
-|  | GCap | .553 ± .180 | .379 ± .211 | .412 ± .215 | .241 ± .111 |
-|  | LiNGAM | .717 ± .140 | .499 ± .149 | .640 ± .185 | .227 ± .096 |
-|  | GIMME | .505 ± .032 | .040 ± .198 | .012 ± .063 | .003 ± .013 |
-|  | GC | .564 ± .199 | .304 ± .164 | .484 ± .259 | .376 ± .108 |
+| CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
+|  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
+|  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
+|  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
+|  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
+| CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
+|  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
+|  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
+|  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
+|  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
+| Chain | Dual-flow | .895±.109 | .691±.155 | .828±.167 | .136±.082 |
+|  | GCap | .492±.144 | .310±.180 | .320±.198 | .224±.084 |
+|  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
+|  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
+|  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
+| Diam. | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
+|  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
+|  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
+|  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
+|  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
 
 Dual-flow achieved the highest mean AUROC and sensitivity in all four conditions and the highest precision in three of four conditions. It consistently outperformed GCap, supporting the joint contribution of empirical residual modeling and input-distribution optimization. GIMME generally achieved low FPR at the cost of very low sensitivity.
 
