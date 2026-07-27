@@ -1,4 +1,4 @@
-We thank the reviewer and address the four concerns below.
+We thank the reviewer and address the four concerns and related questions below.
 
 **1. Real-data evaluation and neuroscience support.**
 The tongue-motion experiment was not an unconstrained whole-brain exploratory analysis. As described in Appendix C.1, the four tongue ROIs in Fig. 2B were defined from data-specific FSL FEAT activation maps and corresponded to cerebellar and bilateral orofacial sensorimotor regions reported for the HCP motor task (Barch et al., 2013); effective connectivity (EC) estimation was restricted to this network.
