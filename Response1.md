@@ -6,30 +6,30 @@ We thank the reviewer for distinguishing validation of non-Gaussian capacity est
 The tongue-motion experiment was a literature-constrained known-pathway analysis, not an unconstrained exploratory analysis. The expected pathways included contralateral cerebello-cortical and bilateral orofacial sensorimotor interactions [refs]. We will state these hypotheses before presenting the estimates, strengthen their anatomical support, and clarify the statistical criterion for the starred edges. Because human fMRI cannot provide invasive ground truth for every connection, exact known-edge validation is provided by the simulations below.
 
 **2. Known-edge simulations and baselines.**
-Using an adapted Smith et al. BOLD simulation framework, we generated 50 realizations per condition with TR$=1$ s, 5-min scans, and two-component Gaussian-mixture measurement noise at 10-dB SNR. We tested: common-driver networks $1\to\{2,3\}$ with equal $(0.4,0.4)$ or unequal $(0.8,0.4)$ coupling; a chain-SC network $1\to2\to3\to4\to5$ plus $1\to5$; and a diamond network $1\to\{2,3\}\to4\to5$.
+We conducted additional controlled stress tests using an adapted implementation of the established Smith et al. BOLD simulation framework with prespecified ground-truth effective-connectivity matrices (NeuroImage, 2011). For the present experiments, we used a TR of 1 s, a 5-min scan duration, and additive two-component Gaussian-mixture measurement noise scaled to an SNR of 10 dB. We evaluated two distinct 5-ROI directed topologies: (i) a chain-with-shortcut network (chain-SC) containing 1->2, 2->3, 3->4, 4->5, and 1->5; and (ii) a diamond DAG (diam) containing 1->2, 1->3, 2->4, 3->4, and 4->5. We additionally evaluated a 3-ROI common-driver topology containing 1->2 and 1->3, but no direct connection between nodes 2 and 3, under equal (0.4 and 0.4) and unequal (0.8 and 0.4) coupling strengths. We generated 50 independent realizations for each condition.
 
-Gaussian capacity (GCap) was a within-framework combined ablation retaining the fitted FIR channel and edge-selection procedure but replacing empirical residual modeling and input-distribution optimization with the Gaussian-capacity calculation. GC, VAR-LiNGAM (VL), and GIMME were external baselines. All methods used the same ground-truth edges and edge-selection procedure. Entries below are mean $\pm$ SD.
+Gaussian capacity (GCap) was a within-framework combined ablation retaining the fitted FIR channel and edge-selection procedure but replacing empirical residual modeling and input-distribution optimization with the Gaussian-capacity calculation. GC, VAR-LiNGAM (LiNGAM), and GIMME were external baselines. All methods used the same ground-truth edges and edge-selection procedure. Entries below are mean $\pm$ SD.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---:|---:|---:|---:|
 | CD-e | Dual-flow | .925 ± .186 | .893 ± .223 | .900 ± .226 | .070 ± .152 |
-|  | Gauss-cap | .466 ± .353 | .387 ± .420 | .350 ± .381 | .290 ± .210 |
-|  | VAR-LiNGAM | .683 ± .342 | .560 ± .395 | .610 ± .408 | .260 ± .247 |
+|  | Gcap | .466 ± .353 | .387 ± .420 | .350 ± .381 | .290 ± .210 |
+|  | LiNGAM | .683 ± .342 | .560 ± .395 | .610 ± .408 | .260 ± .247 |
 |  | GIMME | .498 ± .018 | .000 ± .000 | .000 ± .000 | .005 ± .035 |
 |  | GC | .528 ± .293 | .383 ± .286 | .490 ± .357 | .410 ± .207 |
 | CD-u | Dual-flow | .910 ± .168 | .873 ± .222 | .790 ± .249 | .075 ± .136 |
 |  | Gauss-cap | .405 ± .310 | .287 ± .404 | .210 ± .287 | .275 ± .184 |
-|  | VAR-LiNGAM | .690 ± .352 | .590 ± .390 | .630 ± .414 | .235 ± .223 |
+|  | LiNGAM | .690 ± .352 | .590 ± .390 | .630 ± .414 | .235 ± .223 |
 |  | GIMME | .750 ± .000 | 1.000 ± .000 | .500 ± .000 | .000 ± .000 |
 |  | GC | .485 ± .297 | .327 ± .301 | .390 ± .354 | .400 ± .202 |
 | Chain | Dual-flow | .895 ± .109 | .691 ± .155 | .828 ± .167 | .136 ± .082 |
-|  | Gauss-cap | .492 ± .144 | .310 ± .180 | .320 ± .198 | .224 ± .084 |
-|  | VAR-LiNGAM | .684 ± .195 | .460 ± .201 | .580 ± .219 | .248 ± .120 |
+|  | GCap | .492 ± .144 | .310 ± .180 | .320 ± .198 | .224 ± .084 |
+|  | LiNGAM | .684 ± .195 | .460 ± .201 | .580 ± .219 | .248 ± .120 |
 |  | GIMME | .522 ± .051 | .230 ± .419 | .052 ± .097 | .008 ± .022 |
 |  | GC | .506 ± .118 | .251 ± .093 | .380 ± .158 | .379 ± .094 |
 | Diam. | Dual-flow | .888 ± .101 | .653 ± .135 | .836 ± .170 | .156 ± .077 |
-|  | Gauss-cap | .553 ± .180 | .379 ± .211 | .412 ± .215 | .241 ± .111 |
-|  | VAR-LiNGAM | .717 ± .140 | .499 ± .149 | .640 ± .185 | .227 ± .096 |
+|  | GCap | .553 ± .180 | .379 ± .211 | .412 ± .215 | .241 ± .111 |
+|  | LiNGAM | .717 ± .140 | .499 ± .149 | .640 ± .185 | .227 ± .096 |
 |  | GIMME | .505 ± .032 | .040 ± .198 | .012 ± .063 | .003 ± .013 |
 |  | GC | .564 ± .199 | .304 ± .164 | .484 ± .259 | .376 ± .108 |
 
