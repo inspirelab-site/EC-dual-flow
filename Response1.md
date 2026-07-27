@@ -11,7 +11,7 @@ We conducted additional controlled stress tests using an adapted implementation 
 Gaussian capacity (GCap) was a within-framework combined ablation that retained the fitted FIR channel and edge-selection procedure but replaced empirical residual modeling and input-distribution optimization with the Gaussian-capacity calculation. GC, VAR-LiNGAM (LiNGAM), and GIMME were external baselines. All methods were evaluated on the same simulated realizations and against the same ground-truth directed-edge sets, using a consistent evaluation rule to convert method outputs into binary directed adjacency matrices where applicable. Entries below are mean $\pm$ SD.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
-|---|---|---:|---:|---:|---:|
+|---|---|---:|---:|---:|---|
 | CD-e | Dual-flow | .925 ± .186 | .893 ± .223 | .900 ± .226 | .070 ± .152 |
 |  | GCap | .466 ± .353 | .387 ± .420 | .350 ± .381 | .290 ± .210 |
 |  | LiNGAM | .683 ± .342 | .560 ± .395 | .610 ± .408 | .260 ± .247 |
