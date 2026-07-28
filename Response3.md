@@ -21,8 +21,8 @@ Channel capacity is not simply a re-expression of an FIR coefficient or binary e
 
 | Method | BLP-derived EC significantly correlated with BOLD SWC |
 |---|---|
-| GCap | Theta (\(p=.0192\)); low beta (\(p=.0025\)); high beta (\(p=.0044\)); gamma (\(p=.0451\)) |
-| Dual-flow | Theta (\(p=.0179\)); low beta (\(p=.0019\)); high beta (\(p=.0009\)); gamma (\(p=.0310\)) |
+| GCap | Theta (p=.019); low beta (p=.003); high beta (p=.004); gamma (p=.045) |
+| Dual-flow | Theta (p=.018); low beta (p=.002）; high beta (p=.001); gamma (p=.031) |
 | VAR-LiNGAM | None |
 | GC | None |
 
