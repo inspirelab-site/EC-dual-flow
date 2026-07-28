@@ -17,16 +17,14 @@ Because the tongue-motion analysis does not provide exact directed-edge ground t
 We also added VAR-LiNGAM to the expanded tongue-motion comparison. GIMME is evaluated in the longer known-edge simulations but not in the short-window HCP analysis because its group-level SEM search is not directly applicable to these short task segments. We will revise the Introduction and Related Work to distinguish our use of non-Gaussianity from LiNGAM, add recent applications and benchmarks of established EC frameworks, and discuss newer approaches that are not directly comparable because they require different data, priors, or experimental inputs.
 
 **3. Insight provided by channel capacity beyond a conventional EC coefficient.**
-Channel capacity is not simply a re-expression of an FIR coefficient or binary edge decision. It characterizes how fitted directional dynamics and residual uncertainty jointly constrain the information-carrying capability of the modeled interaction. Importantly, sliding-window capacity recovered the higher-frequency BOLD–neural coupling previously identified using sliding-window correlation in a comparable concurrent rat BOLD–LFP dataset. For each method and frequency band, we correlated the sliding-window EC estimates derived from LFP band-limited power with the corresponding BOLD-derived EC estimates. After BH-FDR correction across all 24 method-by-band tests, both GCap and Dual-flow showed significant BLP–BOLD correlations in the low- and high-beta bands, whereas VAR-LiNGAM and GC showed no significant correlations. This reproduces the higher-frequency BOLD–neural coupling pattern previously reported using sliding-window correlation in comparable concurrent BOLD–LFP data (Thompson et al., NeuroImage, 2013, Fig. 2A). We will include the full analysis and figure in Appendix D.
+Channel capacity is not simply a re-expression of an FIR coefficient or binary edge decision. It characterizes how fitted directional dynamics and residual uncertainty jointly constrain the information-carrying capability of the modeled interaction. Importantly, we evaluated whether time-resolved EC estimated from LFP band-limited power by each method recovered the BOLD–neural coupling previously identified using sliding-window correlation in comparable concurrent rat BOLD–LFP data. For each frequency band, we correlated the method-specific BLP-derived EC sequence with the BOLD sliding-window correlation sequence. Both GCap and Dual-flow showed significant positive correlations in theta, low-beta, high-beta, and gamma bands, whereas VAR-LiNGAM and GC showed no significant correlations in any band. This higher-frequency profile is consistent with the coupling pattern reported by Thompson et al. (NeuroImage, 2013, Fig. 2A), providing cross-modal physiological evidence that time-resolved capacity captures neural dynamics beyond directed-edge recovery. We will include the complete analysis and figure in Appendix D of the revision.
 
-| Method | Significant BLP bands after BH-FDR |
+| Method | BLP-derived EC significantly correlated with BOLD SWC |
 |---|---|
-| GCap | Theta (q=.038)); low beta (q=.013); high beta (q=.013) |
-| Dual-flow | Theta (q=.036); low beta (q=.006); high beta (q=.005)); gamma (q=.047) |
+| GCap | Theta (\(p=.0192\)); low beta (\(p=.0025\)); high beta (\(p=.0044\)); gamma (\(p=.0451\)) |
+| Dual-flow | Theta (\(p=.0179\)); low beta (\(p=.0019\)); high beta (\(p=.0009\)); gamma (\(p=.0310\)) |
 | VAR-LiNGAM | None |
 | GC | None |
-
-This cross-modal result suggests that time-resolved capacity captures physiologically meaningful neural dynamics beyond conventional directed-edge detection. 
 
 **4. Accuracy of the empirical residual-pool approximation.**
 The true residual distribution is unavailable in real neural data. We therefore approximate it nonparametrically by uniformly resampling with replacement from the empirical residual pool obtained after fitting each directional FIR model. This preserves the observed marginal residual distribution without imposing a Gaussian or other parametric family.
