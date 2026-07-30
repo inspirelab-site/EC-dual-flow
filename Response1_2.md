@@ -30,4 +30,4 @@ Thank you for the additional comments. We agree that the current evidence does n
 
 - **Future scalability.** We will state this intended scope more prominently and avoid implying current whole-brain computational practicality. Further computational optimization remains an important direction for extending the method to larger networks.
 
-In summary, the results indicate a statistical-performance–computational-efficiency trade-off: Dual-flow improves directed-edge recovery under the tested conditions but at substantially greater computational cost. The present contribution should therefore be evaluated as a proof-of-concept estimator for focused circuit analysis, not as a comprehensive or ready-to-use framework for exhaustive whole-brain discovery.
+In summary, the results indicate a statistical-performance–computational-efficiency trade-off: Dual-flow improves directed-edge recovery under the tested conditions but at substantially greater computational cost. The present contribution should therefore be evaluated as a proof-of-concept estimator for focused circuit analysis, not as a ready-to-use framework for exhaustive whole-brain discovery.
