@@ -34,6 +34,11 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
 |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
 |  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
+| Comp. | Dual-flow | xx±xx | xx±xx | xx±xx | xx±xx |
+|  | GCap | xx±xx | xx±xx | xx±xx | xx±xx |
+|  | LiNGAM | .561±.067 | .284±.067 | .412±.086 | .269±.063 |
+|  | GIMME | .559±.017 | .354±.057 | .194±.034 | .088±.008 |
+|  | GC | .636±.035 | .398±.080 | .484±.084 | .196±.071 |
 
 Dual-flow achieved the highest mean AUROC and sensitivity in all four conditions and the highest precision in three of four conditions. It consistently outperformed GCap, supporting the joint contribution of empirical residual modeling and input-distribution optimization. GIMME generally achieved low FPR at the cost of very low sensitivity.
 
