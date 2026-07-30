@@ -14,7 +14,7 @@ Thank you for the additional comments. We understand the validity concern to enc
 
   - **Complexities not yet evaluated—feedback, modularity, and larger network scale.** Feedback cycles and explicit modular organization were not included in the added simulations. Larger recurrent and modular networks therefore remain important targets for future validation. The current experiments should be interpreted as proof-of-concept known-edge validation under the tested indirect-path and omitted-common-driver conditions, rather than comprehensive whole-brain validation.
  
-  - **currently running.** Each ROI has a fixed baseline delay pattern, ranging from −0.60 to +0.75 seconds for the 10 ROIs. For every realization, the simulator adds an independent Gaussian perturbation with SD = 0.10 seconds to each ROI’s baseline delay. Transit time, which affects HRF duration, also varies by ROI and subject using tau_jitter_cv = 0.05. The realized delay and transit time matrices are saved as hemodynamics.delay_sec and hemodynamics.tau_sec, with dimensions nodes × subjects.
+  - **currently running. (may or may not include)** Each ROI has a fixed baseline delay pattern, ranging from −0.60 to +0.75 seconds for the 10 ROIs. For every realization, the simulator adds an independent Gaussian perturbation with SD = 0.10 seconds to each ROI’s baseline delay. Transit time, which affects HRF duration, also varies by ROI and subject using tau_jitter_cv = 0.05. The realized delay and transit time matrices are saved as hemodynamics.delay_sec and hemodynamics.tau_sec, with dimensions nodes × subjects.
 
 **2. Computational cost, practical scalability, and intended use**
 
