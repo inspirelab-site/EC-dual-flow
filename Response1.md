@@ -54,7 +54,7 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-| Comp. | Dual-flow | .724±.064 | .442±.103 | .648±.078 | .216±.068 |
+| Comb. | Dual-flow | .724±.064 | .442±.103 | .648±.078 | .216±.068 |
 |  | GCap | .591±.066 | .380±.088 | .408±.079 | .172±.049 |
 |  | LiNGAM | .561±.067 | .284±.067 | .412±.086 | .269±.063 |
 |  | GIMME | .559±.017 | .354±.057 | .194±.034 | .088±.008 |
