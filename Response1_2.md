@@ -10,7 +10,7 @@ Thank you for the additional comments. We agree that the current evidence does n
 
 - **Additional simulation topologies.** We expanded the validation to address the reviewer’s concerns through matched diagnostic and combined conditions. The chain and diamond networks test direct versus indirect pathways and convergent or divergent organization. The chain-HRF condition adds regional and subject-level hemodynamic variability while retaining the same neural topology. The Diamond-hidden condition removes the common source node from the analyzed data. The feedback condition introduces recurrent connectivity, and the modular 10-ROI condition provides a size-matched control without hidden drivers or heterogeneous hemodynamics. Finally, the combined condition jointly incorporates modular organization, indirect and recurrent pathways, multiple omitted common drivers, and heterogeneous regional and subject-level hemodynamics. All conditions contain 50 independent realizations.
 
-Performance decreased in the more demanding combined condition, confirming that simultaneous network complexities present a substantially harder identification problem. Nevertheless, Dual-flow retained the highest mean AUROC (.724), precision (.648), and sensitivity (.517) among the evaluated methods, with an FPR of .071. GIMME achieved the lowest FPR (.062) but substantially lower sensitivity (.154), indicating a conservative operating point rather than stronger overall edge recovery. These results extend the controlled validation beyond the original 3–5-ROI DAGs while also showing that performance is reduced under joint complexity. We therefore do not present the combined experiment as comprehensive whole-brain validation.
+  Performance decreased in the more demanding combined condition, confirming that simultaneous network complexities present a substantially harder identification problem. Nevertheless, Dual-flow retained the highest mean AUROC (.724), precision (.648), and sensitivity (.517) among the evaluated methods, with an FPR of .071. GIMME achieved the lowest FPR (.062) but substantially lower sensitivity (.154), indicating a conservative operating point rather than stronger overall edge recovery. These results extend the controlled validation beyond the original 3–5-ROI DAGs while also showing that performance is reduced under joint complexity. We therefore do not present the combined experiment as comprehensive whole-brain validation.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---|---|---|---|
@@ -60,10 +60,9 @@ Performance decreased in the more demanding combined condition, confirming that 
 |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
 |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
 
--
--
--
-- The chain with the \(1\to5\) shortcut is the canonical S5 topology introduced by [Smith et al. (2011)](https://www.contrib.andrew.cmu.edu/org/fmri-research/Smith-FMRI-2011.pdf) and subsequently widely used as a controlled EC benchmark. We retained this topology and added diamond and common-driver networks to evaluate complementary feedforward structures, including indirect paths, convergent and divergent motifs, unequal coupling, and an omitted common driver.
+
+
+  The chain with the \(1\to5\) shortcut is the canonical S5 topology introduced by [Smith et al. (2011)](https://www.contrib.andrew.cmu.edu/org/fmri-research/Smith-FMRI-2011.pdf) and subsequently widely used as a controlled EC benchmark. We retained this topology and added diamond and common-driver networks to evaluate complementary feedforward structures, including indirect paths, convergent and divergent motifs, unequal coupling, and an omitted common driver.
 
   These experiments do not test feedback loops, explicit modular organization, multiple simultaneous confounders, heterogeneous regional hemodynamics, or their combined effects in a large network. The limited biological realism of small controlled networks is a general limitation of simulation-based EC validation, not a method-specific limitation of Dual-flow. All methods were evaluated on identical realizations and directed ground truth, so their comparative results remain valid within the tested conditions. The simplified topologies limit generalization, but they do not demonstrate that Dual-flow is uniquely more vulnerable than the baseline methods.
 
