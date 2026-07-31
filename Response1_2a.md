@@ -1,6 +1,6 @@
-# Response to Reviewer 1
+# Response to Reviewer 3TGk's follow-up comment 1
 
-We appreciate the reviewer’s follow-up. We agree that the previous results did not establish reliability in more complex networks or computational practicality for unrestricted whole-brain analysis. We address and clarify these points directly below.
+We appreciate the reviewer’s follow-up comments. We agree that the previous results did not establish reliability in more complex networks or computational practicality for unrestricted whole-brain analysis, which wasn't the intended scope of this present study. We address and clarify these points directly below.
 
 ## 1. Expanded simulation validation and reliability
 
