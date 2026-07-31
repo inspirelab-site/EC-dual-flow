@@ -4,7 +4,7 @@ We appreciate the additional comments. We agree that the current evidence does n
 
 ## 1. Reliability and validity of the known-edge simulations
 
-- **Additional simulation topologies.** We appreciate the reviewer's reminder of possible complex senarios in complex brain systems, which further help us strengthen our analysis. We expanded the validation to address the reviewer’s concerns through matched diagnostic and combined conditions. We now made a comprehensive table of network topology and and their desired stress-test condition as well as performance of each method.
+- **Additional simulation topologies.** We appreciate the reviewer’s identification of challenges that can arise in more complex brain networks. We expanded the validation using matched diagnostic conditions that isolate specific challenge, we also tested a combined condition that test their coexistence, as well as a mac1-28 motived synethetic adjacenty matrix. The table below summarizes the primary condition tested by each topology and the performance of each method.
 
   | Net | Method | AUROC | Precision | Sensitivity | FPR |
   |---|---|---|---|---|---|
@@ -60,7 +60,22 @@ We appreciate the additional comments. We agree that the current evidence does n
   |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 
 
+**Table X. Simulation topology, targeted challenge, and source.** Candidate pairs include all possible directed connections among observed ROIs, excluding self-connections. “Observed edges” are the directed edges treated as positives during evaluation. References identify the source of the topology; all modified conditions use our adapted simulation settings.
 
+| Condition | Observed/total ROIs | Candidate pairs | Ground-truth topology or manipulation | Observed edges | Primary feature evaluated | Topology source/resource |
+|---|---:|---:|---|---:|---|---|
+| CD-e | 3/3 | 6 | 1->2, 1->3; coupling strengths 0.4/0.4 | 2 | Divergent common-driver motif with equal coupling | Present-study diagnostic condition; standard common-cause/fork motif |
+| CD-u | 3/3 | 6 | 1->2, 1->3; coupling strengths 0.8/0.4 | 2 | Divergence and unequal coupling | Present-study diagnostic condition |
+| Diamond | 5/5 | 20 | 1->2, 1->3, 2->4, 3->4, 4->5 | 5 | Parallel indirect pathways and convergent inputs | Present-study diagnostic diamond DAG |
+| Diamond (hidden) | 4/5 | 12 | Full diamond simulated, but ROI 1 omitted; evaluated edges are 2->4, 3->4, and 4->5 | 3 | Latent common cause of ROIs 2 and 3 | Present-study hidden-node extension of the diamond condition |
+| Chain | 5/5 | 20 | 1->2->3->4->5, with shortcut 1->5 | 5 | Canonical indirect pathway with a direct shortcut | Smith S5 topology: [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/); [NetSim data and code](https://www.fmrib.ox.ac.uk/datasets/netsim/) |
+| Chain (HRF) | 5/5 | 20 | Same S5 topology with randomly varying regional HRF parameters | 5 | Hemodynamic heterogeneity while holding topology fixed | Smith S5 and HRF-variability framework, with the present study’s adapted HRF implementation |
+| Feedback | 5/5 | 20 | 1->2->3->4->5, plus 3->2 and 5->3 | 6 | Reciprocal feedback and a longer recurrent cycle | Present-study recurrent extension; motivated by the cyclic simulations of [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/) and [Sánchez-Romero et al. (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6370458/) |
+| Modular-10 | 10/10 | 90 | Two S5 subnetworks connected by one directed cross-subnetwork edge | 11 | Two-subnetwork organization and sparse between-subnetwork connectivity | Smith S10 topology: [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/); [NetSim resource](https://www.fmrib.ox.ac.uk/datasets/netsim/) |
+| Combined-10 | 10/12 | 90 | Two recurrent five-node modules, sparse cross-module connections, multiple direct and indirect paths, and two omitted drivers | 18 observed; 22 total | Coexistence of feedback, modular organization, indirect paths, latent drivers, and heterogeneous HRFs | Present-study combined stress test constructed from the preceding diagnostic conditions |
+| Macaque-28 | 28/28 | 756 | Macaque SmallDegree matrix containing 52 directed edges, 10 cycles, and five reciprocal two-cycles; simulated with random regional HRF variation | 52 | Larger network size, recurrent connectivity, anatomical topology, and heterogeneous HRFs | SmallDegree topology from [Sánchez-Romero et al. (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6370458/), derived from the tracer-based macaque connectome of [Markov et al. (2014)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3862262/); [Feedback-Discovery resource](https://github.com/cabal-cmu/Feedback-Discovery) |
+
+All conditions were generated using the same linear neural-dynamics and Balloon–Windkessel framework, with condition-specific topology and hemodynamic manipulations. The present simulations additionally used Markov-switching Gaussian-mixture neural inputs and temporally correlated non-Gaussian BOLD measurement noise. Thus, the Smith and macaque labels identify the source of the ground-truth topology rather than an exact reproduction of every original simulation parameter.
 
 
 
