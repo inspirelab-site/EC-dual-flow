@@ -8,7 +8,62 @@ Thank you for the additional comments. We agree that the current evidence does n
 
 - **Generalization of Simulation Results.** We agree that large-scale biological realism remains a limitation of the present validation and of simulation-based EC evaluation more broadly. Our topology selection followed a controlled diagnostic design. The five-node chain with shortcut is the established S5 benchmark introduced by Smith et al., while the diamond and common-driver conditions systematically test parallel indirect pathways, convergent and divergent connections, equal versus unequal coupling, and a common input omitted from a pairwise model. Fifty independent realizations per condition provide known-ground-truth evaluation across these complementary challenges. These experiments provide controlled validation of the proposed estimator’s core claims, but do not establish performance for all possible combinations of large-scale modular organization, recurrent dynamics, latent causes, and heterogeneous hemodynamics. Constructing and validating a biologically comprehensive whole-brain simulator would constitute a separate methodological contribution. We will clarify this boundary and avoid extending our claims beyond the network scales and conditions evaluated here.
 
-- **Scope of the tested topologies.** The chain with the \(1\to5\) shortcut is the canonical S5 topology introduced by [Smith et al. (2011)](https://www.contrib.andrew.cmu.edu/org/fmri-research/Smith-FMRI-2011.pdf) and subsequently widely used as a controlled EC benchmark. We retained this topology and added diamond and common-driver networks to evaluate complementary feedforward structures, including indirect paths, convergent and divergent motifs, unequal coupling, and an omitted common driver.
+- **Additonal Simulation Topologies.**
+
+
+
+| Net | Method | AUROC | Precision | Sensitivity | FPR |
+|---|---|---|---|---|---|
+| CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
+|  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
+|  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
+|  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
+|  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
+| CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
+|  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
+|  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
+|  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
+|  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
+| Chain | Dual-flow | .895±.109 | .691±.155 | .828±.167 | .136±.082 |
+|  | GCap | .492±.144 | .310±.180 | .320±.198 | .224±.084 |
+|  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
+|  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
+|  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
+| Chain (HRF) | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Diam. | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
+|  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
+|  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
+|  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
+|  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
+| Diam(H) | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
+|  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
+|  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
+|  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
+|  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
+| Feedback | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Modular | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Comp. | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
+|  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
+|  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
+|  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
+|  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
+
+-
+-
+-
+- The chain with the \(1\to5\) shortcut is the canonical S5 topology introduced by [Smith et al. (2011)](https://www.contrib.andrew.cmu.edu/org/fmri-research/Smith-FMRI-2011.pdf) and subsequently widely used as a controlled EC benchmark. We retained this topology and added diamond and common-driver networks to evaluate complementary feedforward structures, including indirect paths, convergent and divergent motifs, unequal coupling, and an omitted common driver.
 
   These experiments do not test feedback loops, explicit modular organization, multiple simultaneous confounders, heterogeneous regional hemodynamics, or their combined effects in a large network. The limited biological realism of small controlled networks is a general limitation of simulation-based EC validation, not a method-specific limitation of Dual-flow. All methods were evaluated on identical realizations and directed ground truth, so their comparative results remain valid within the tested conditions. The simplified topologies limit generalization, but they do not demonstrate that Dual-flow is uniquely more vulnerable than the baseline methods.
 
