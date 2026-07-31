@@ -1,10 +1,10 @@
 # Response to Reviewer 3TGk's follow-up comment 1
 
-We appreciate the reviewer’s follow-up comments. We agree that the previous results did not establish reliability in more complex networks or computational practicality for unrestricted whole-brain analysis, which wasn't the intended scope of this present study. We address and clarify these points directly below.
+We thank the reviewer for identifying two important limitations: validation under more complex network conditions and computational practicality at whole-brain scale. Our intended application is focused analysis of prespecified circuits; nevertheless, we substantially expanded the simulations and clarify the computational scope below.
 
 ## 1. Expanded simulation validation and reliability
 
-Using the simulation framework and settings described in our initial rebuttal, we expanded the validation from 4 to 10 conditions: equal- and unequal-coupling common drivers; diamond and hidden-driver diamond networks; chain and heterogeneous-HRF chain networks; a feedback network; a 10-ROI modular network; a 10-ROI combined stress test; and a 28-ROI macaque-derived recurrent topology. The heterogeneous-HRF conditions additionally varied regional hemodynamic parameters across realizations. Exact topologies and manipulations are reported in Appendix Table Y.
+Using the simulation framework and settings described in our initial rebuttal, we expanded the validation from 4 to 10 conditions to address each stress condition raised by the reviewer, as well as their combined scenarios.: equal- and unequal-coupling common drivers; diamond and hidden-driver diamond networks; chain and heterogeneous-HRF chain networks; a feedback network; a 10-ROI modular network; a 10-ROI combined stress test; and a 28-ROI macaque-derived recurrent topology. The heterogeneous-HRF conditions additionally varied regional hemodynamic parameters across realizations. Exact topologies and manipulations are reported in Appendix Table Y, with performance reported in Table X.
 
 ### Table X. Performance across simulation conditions
 
@@ -12,58 +12,58 @@ Values are mean±SD across 50 realizations.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---:|---:|---:|---:|
-| CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
-|  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
-|  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
+| CD-e | Dual-flow | .888±.108 | .551±.129 | .840±.236 | .360±.169 |
+|  | GCap | .700±.129 | .486±.053 | .720±.251 | .390±.161 |
+|  | LiNGAM | .725±.315 | .632±.381 | .640±.379 | .210±.228 |
 |  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
-|  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
-| CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
-|  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
-|  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
+|  | GC | .580±.221 | .388±.211 | .570±.335 | .420±.178 |
+| CD-u | Dual-flow | .858±.104 | .557±.120 | .700±.247 | .275±.104 |
+|  | GCap | .668±.130 | .503±.024 | .590±.194 | .290±.093 |
+|  | LiNGAM | .713±.318 | .578±.393 | .600±.404 | .220±.206 |
 |  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
-|  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
-| Diamond | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
-|  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
-|  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
+|  | GC | .610±.187 | .399±.207 | .560±.314 | .405±.188 |
+| Diamond | Dual-flow | .874±.076 | .527±.125 | .732±.216 | .245±.122 |
+|  | GCap | .777±.050 | .465±.073 | .672±.228 | .276±.129 |
+|  | LiNGAM | .751±.126 | .605±.217 | .560±.236 | .131±.089 |
 |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
-|  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
-| Diamond (hidden) | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
-|  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
-|  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
+|  | GC | .607±.157 | .357±.180 | .468±.204 | .307±.140 |
+| Diamond (hidden) | Dual-flow | .910±.079 | .552±.136 | .807±.224 | .249±.132 |
+|  | GCap | .799±.070 | .469±.070 | .793±.222 | .309±.117 |
+|  | LiNGAM | .787±.172 | .627±.259 | .647±.256 | .140±.105 |
 |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
-|  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
-| Chain | Dual-flow | .948±.068 | .943±.116 | .724±.221 | .020±.043 |
-|  | GCap | .430±.160 | .248±.286 | .164±.179 | .163±.099 |
-|  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
+|  | GC | .589±.233 | .378±.257 | .540±.293 | .356±.201 |
+| Chain | Dual-flow | .938±.042 | .762±.163 | .744±.221 | .108±.100 |
+|  | GCap | .761±.056 | .460±.070 | .556±.226 | .233±.142 |
+|  | LiNGAM | .715±.160 | .598±.294 | .480±.242 | .129±.118 |
 |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
-|  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
-| Chain (HRF) | Dual-flow | .964±.070 | .943±.134 | .772±.225 | .024±.061 |
-|  | GCap | .652±.155 | .652±.277 | .400±.206 | .091±.091 |
-|  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
-|  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
-|  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
-| Feedback | Dual-flow | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | GCap | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
+|  | GC | .603±.100 | .357±.156 | .428±.202 | .287±.146 |
+| Chain (HRF) | Dual-flow | .939±.057 | .782±.186 | .784±.217 | .105±.128 |
+|  | GCap | .795±.059 | .492±.095 | .580±.222 | .216±.131 |
+|  | LiNGAM | .693±.134 | .446±.195 | .448±.220 | .180±.084 |
+|  | GIMME | .605±.024 | .990±.071 | .212±.048 | .001±.009 |
+|  | GC | .752±.099 | .700±.280 | .392±.206 | .105±.124 |
+| Feedback | Dual-flow | .889±.071 | .776±.159 | .793±.174 | .195±.157 |
+|  | GCap | .613±.043 | .490±.039 | .628±.168 | .438±.130 |
+|  | LiNGAM | .563±.147 | .462±.176 | .378±.170 | .288±.112 |
 |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
-|  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
-| Mod10 | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
-|  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
-|  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
+|  | GC | .514±.111 | .398±.138 | .465±.205 | .458±.195 |
+| Mod10 | Dual-flow | .949±.027 | .824±.146 | .604±.199 | .024±.025 |
+|  | GCap | .883±.026 | .448±.070 | .509±.165 | .093±.046 |
+|  | LiNGAM | .701±.098 | .428±.174 | .396±.150 | .081±.044 |
 |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
-|  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
-| Comp10 | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
-|  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
-|  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
-|  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
-|  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
-| Macq28 | Dual-flow | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | GCap | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | LiNGAM | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | GIMME | **TBD** | **TBD** | **TBD** | **TBD** |
-|  | GC | **TBD** | **TBD** | **TBD** | **TBD** |
+|  | GC | .630±.098 | .227±.115 | .335±.153 | .173±.077 |
+| Comp10 | Dual-flow | .879±.025 | .547±.061 | .727±.083 | .154±.040 |
+|  | GCap | .852±.023 | .566±.058 | .603±.079 | .120±.036 |
+|  | LiNGAM | .692±.062 | .457±.148 | .317±.108 | .103±.053 |
+|  | GIMME | .566±.005 | .407±.139 | .166±.043 | .065±.019 |
+|  | GC | .736±.044 | .551±.098 | .316±.121 | .070±.043 |
+| Macq28 | Dual-flow | .885±.020 | .369±.098 | .650±.093 | .094±.044 |
+|  | GCap | .845±.024 | .260±.058 | .614±.061 | .140±.050 |
+|  | LiNGAM | — | — | — | — |
+|  | GIMME | — | — | — | — |
+|  | GC | — | — | — | — |
 
-Across all 10 conditions, Dual-flow achieved the highest AUROC. Performance remained strong with a hidden common driver (AUROC=.911), heterogeneous HRFs (.964), and modular organization (.929).
+Across all 10 conditions, Dual-flow achieved the highest AUROC. Performance remained strong with a hidden common driver (XX), heterogeneous HRFs (.964), and modular organization (.929).
 
 Performance decreased when the challenges coexisted in Comp10, confirming that this was a substantially harder identification problem. Nevertheless, Dual-flow retained the highest AUROC (.724 versus .636 for the next-best method), precision (.648 versus .542), and sensitivity (.517 versus .309). Its FPR (.071) was comparable to GC (.070) and GCap (.073). GIMME achieved a slightly lower FPR (.062) but substantially lower sensitivity (.154), reflecting a more conservative operating point rather than stronger overall recovery.
 
