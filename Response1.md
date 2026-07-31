@@ -29,8 +29,8 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
 |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
 |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
-| Chain (HRF) | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Chain (HRF) | Dual-flow | .939±.057 | .782±.186 | .784±.217 | .105±.128 |
+|  | GCap | .796±.059 | .492±.095 | .580±.222 | .216±.131 |
 |  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
 |  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
 |  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
@@ -49,8 +49,8 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
 |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
 |  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
-| Modular | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Modular | Dual-flow | .949±.027 | .824±.146 | .604±.199 | .024±.025 |
+|  | GCap | .883±.027 | .448±.070 | .511±.165 | .093±.046 |
 |  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
 |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
 |  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
@@ -59,6 +59,11 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
 |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
 |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
+| 28 Node (please update name here, if needed!) | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 
 Dual-flow achieved the highest mean AUROC and sensitivity in all four conditions and the highest precision in three of four conditions. It consistently outperformed GCap, supporting the joint contribution of empirical residual modeling and input-distribution optimization. GIMME generally achieved low FPR at the cost of very low sensitivity.
 
