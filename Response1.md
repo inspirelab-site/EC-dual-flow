@@ -29,7 +29,7 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
 |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
 |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
-| Chain (HRF) | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Chain (HRF) | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
