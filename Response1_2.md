@@ -4,78 +4,93 @@ We appreciate the additional comments. We agree that the current evidence does n
 
 ## 1. Reliability and validity of the known-edge simulations
 
-- **Additional simulation topologies.** We appreciate the reviewer’s identification of challenges arising in larger, structurally complex brain networks. We therefore added diagnostic conditions targeting indirect paths, feedback loops, modular structure, hidden nodes, and heterogeneous hemodynamics; a 10-ROI condition combining these challenges; and a 28-ROI macaque-derived recurrent benchmark. Appendix Table X specifies the topology and manipulation in each condition, and Appendix Table Y reports complete performance results.
+- **Additional simulation topologies and performance.** We expanded the validation with diagnostic conditions targeting indirect paths, hidden common causes, feedback loops, modular structure, and heterogeneous hemodynamics; a 10-ROI condition testing their coexistence; and a 28-ROI macaque-derived recurrent topology. Table X reports comparative performance, while Appendix Table Y defines each topology, manipulation, and source.
 
+### Table X. Performance across simulation conditions
 
+Values are mean±SD across 50 independent realizations.
 
-  | Net | Method | AUROC | Precision | Sensitivity | FPR |
-  |---|---|---|---|---|---|
-  | CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
-  |  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
-  |  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
-  |  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
-  |  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
-  | CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
-  |  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
-  |  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
-  |  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
-  |  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
-  | Diam | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
-  |  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
-  |  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
-  |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
-  |  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
-  | Diam(H) | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
-  |  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
-  |  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
-  |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
-  |  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |  
-  | Chain | Dual-flow | .948±.068 | .943±.116 | .724±.221 | .020±.043 |
-  |  | GCap | .430±.160 | .248±.286 | .164±.179 | .163±.099 |
-  |  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
-  |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
-  |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
-  | Chain (HRF) | Dual-flow | .964±.070 | .943±.134 | .772±.225 | .024±.061 |
-  |  | GCap | .652±.155 | .652±.277 | .400±.206 | .091±.091 
-  |  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
-  |  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
-  |  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
-  | Feed | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
-  |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
-  |  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
-  | Mod10 | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
-  |  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
-  |  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
-  |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
-  |  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
-  | Comp10 | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
-  |  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
-  |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
-  |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
-  |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
-  | Macq28 | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Net | Method | AUROC | Precision | Sensitivity | FPR |
+|---|---|---:|---:|---:|---:|
+| CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
+|  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
+|  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
+|  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
+|  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
+| CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
+|  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
+|  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
+|  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
+|  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
+| Diamond | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
+|  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
+|  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
+|  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
+|  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
+| Diamond (hidden) | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
+|  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
+|  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
+|  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
+|  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
+| Chain | Dual-flow | .948±.068 | .943±.116 | .724±.221 | .020±.043 |
+|  | GCap | .430±.160 | .248±.286 | .164±.179 | .163±.099 |
+|  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
+|  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
+|  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
+| Chain (HRF) | Dual-flow | .964±.070 | .943±.134 | .772±.225 | .024±.061 |
+|  | GCap | .652±.155 | .652±.277 | .400±.206 | .091±.091 |
+|  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
+|  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
+|  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
+| Feedback | Dual-flow | TBD | TBD | TBD | TBD |
+|  | GCap | TBD | TBD | TBD | TBD |
+|  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
+|  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
+|  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
+| Mod10 | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
+|  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
+|  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
+|  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
+|  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
+| Comp10 | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
+|  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
+|  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
+|  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
+|  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
+| Macq28 | Dual-flow | TBD | TBD | TBD | TBD |
+|  | GCap | TBD | TBD | TBD | TBD |
+|  | LiNGAM | TBD | TBD | TBD | TBD |
+|  | GIMME | TBD | TBD | TBD | TBD |
+|  | GC | TBD | TBD | TBD | TBD |
 
-| Net | ROIs (observed/total) | Directed edges | Ground-truth topology | Manipulation / Condition tested | Source |
+Across the eight completed conditions, Dual-flow achieved the highest AUROC. AUROC ranged from .888 to .964 in the diagnostic conditions and reached .929 in the 10-ROI modular network. Performance remained strong with a hidden common driver (AUROC=.911), heterogeneous HRFs (.964), and modular organization (.929).
+
+As expected, performance decreased when multiple challenges coexisted in Comp10. Nevertheless, Dual-flow retained the highest AUROC (.724 versus .636 for the next-best method), precision (.648 versus .542), and sensitivity (.517 versus .309). Its FPR (.071) was comparable to GC (.070) and GCap (.073). Methods with lower FPRs generally selected fewer edges; for example, GIMME had FPR=.062 but sensitivity=.154 in Comp10. Thus, the expanded results support Dual-flow’s overall sensitivity–specificity balance while showing the expected limitation under combined network complexity.
+
+### Simulation framework
+
+All BOLD data were generated using the same simulation framework adapted from Smith et al. (NeuroImage, 2011), retaining linear DCM neural dynamics and the Balloon–Windkessel hemodynamic model. Each condition comprised 50 independent 300-s realizations sampled at TR=1 s, with Markov-switching Gaussian-mixture neural inputs and temporally correlated non-Gaussian measurement noise (10-dB SNR; 5% high-variance component with fivefold SD; AR(1) ρ=0.4). Connectivity was fixed within each condition, whereas neural inputs, measurement noise, and specified HRF perturbations varied across realizations.
+
+### Appendix Table Y. Simulation topology and manipulation
+
+| Net | ROIs (observed/total) | Directed edges | Ground-truth topology | Manipulation / condition tested | Source of network topology |
 |---|---:|---:|---|---|---|
-| CD-e | 3/3 | 2 | 1->2 and 1->3; weights 0.4/0.4 | Equal-coupling common driver; divergent motif | Common-driver condition from [Xu et al. (2017)](https://doi.org/10.3389/fnins.2017.00271), regenerated using the present simulator |
-| CD-u | 3/3 | 2 | 1->2 and 1->3; weights 0.8/0.4 | Unequal-coupling common driver; divergent motif | Adapted from [Xu et al. (2017)](https://doi.org/10.3389/fnins.2017.00271); coupling strengths modified |
-| Diamond | 5/5 | 5 | 1->2, 1->3, 2->4, 3->4, and 4->5; all weights 0.4 | Parallel indirect paths and convergence at ROI 4 | Present-study diagnostic condition |
-| Diamond (hidden) | 4/5 | 5 | Same five-edge diamond topology; all weights 0.4 | ROI 1 simulated but omitted from analysis; tests a hidden common driver of ROIs 2 and 3 | Present-study extension |
-| Chain | 5/5 | 5 | 1->2->3->4->5 and 1->5; all weights 0.4 | Canonical indirect path with a direct shortcut | Smith S5 topology: [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/); [NetSim resource](https://www.fmrib.ox.ac.uk/datasets/netsim/) |
-| Chain (HRF) | 5/5 | 5 | Same topology and weights as Chain | Regional HRF delays spanned −0.60 to 0.70 s (a 1.30-s range), and transit-time multipliers ranged from 0.85 to 1.18. Across realizations, delays varied with an SD of 0.10 s and transit times with a CV of 5%, bounded to ±1.50 s and 0.65–1.40 s, respectively. Tests heterogeneous hemodynamic effects | Smith S5 topology with present-study HRF manipulation |
-| Feedback | 5/5 | 6 | 1->2, 2->3, 3->4, 4->5, 3->2, and 5->3; all weights 0.4 | Reciprocal loop 2<->3 and recurrent loop 3->4->5->3; tests feedback loops | Present-study recurrent extension motivated by [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/) and [Sánchez-Romero et al. (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6370458/) |
-| Mod10 | 10/10 | 11 | Two five-node S5 subnetworks connected by 3->8 | Two subnetworks with one between-module edge; tests modular structure | Smith S10 topology: [Smith et al. (2011)](https://pubmed.ncbi.nlm.nih.gov/20817103/); [NetSim resource](https://www.fmrib.ox.ac.uk/datasets/netsim/) |
-| Comp10 | 10/12 | 22 | Two five-node recurrent modules with 16 within-module edges, cross-module edges 5->6 and 9->2, and hidden-driver edges 11->2, 11->5, 12->7, and 12->10; all weights 0.4 | Two hidden drivers, reciprocal and longer feedback loops, indirect paths, convergence, modular structure, and two cross-module connections. Observed-ROI delays span -0.60 to 0.75 s; transit-time multipliers span 0.85–1.20; realization-level delay SD 0.10 s and transit-time CV 5%. Tests multiple co-existing confounders and heterogeneous hemodynamics | Present-study combined stress test |
-| Macq28 | 28/28 | 52 | Fixed Macaque SmallDegree weighted matrix; weights 0.468–0.551; 10 cycles, including five reciprocal two-cycles | Larger network with recurrent connectivity. HRFs vary independently across ROIs and realizations: delay SD 0.10 s, transit-time CV 5%, delay bound ±1.50 s, and transit-time bound 0.65–1.40 s | SmallDegree topology from [Sánchez-Romero et al. (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6370458/), derived from [Markov et al. (2014)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3862262/) |
+| CD-e | 3/3 | 2 | 1->2 and 1->3; weights 0.4/0.4 | Equal-coupling common driver | Xu et al. (Front. Neurosci., 2017) |
+| CD-u | 3/3 | 2 | 1->2 and 1->3; weights 0.8/0.4 | Unequal-coupling common driver | Adapted from Xu et al. (Front. Neurosci., 2017) |
+| Diamond | 5/5 | 5 | 1->2, 1->3, 2->4, 3->4, 4->5; weights 0.4 | Parallel indirect paths and convergence | Present study |
+| Diamond (hidden) | 4/5 | 5 total; 3 evaluated | Same diamond; ROI 1 simulated but omitted | Hidden common driver of ROIs 2 and 3 | Present-study extension |
+| Chain | 5/5 | 5 | 1->2->3->4->5 and 1->5; weights 0.4 | Indirect path with direct shortcut | Smith S5 (Smith et al., NeuroImage, 2011) |
+| Chain (HRF) | 5/5 | 5 | Same as Chain | Regional delays −0.60–0.70 s and transit-time multipliers 0.85–1.18; realization variation* | Smith S5 with present HRF manipulation |
+| Feedback | 5/5 | 6 | 1->2, 2->3, 3->4, 4->5, 3->2, 5->3; weights 0.4 | Reciprocal loop 2<->3 and cycle 3->4->5->3 | Present-study recurrent extension |
+| Mod10 | 10/10 | 11 | Two S5 subnetworks connected by 3->8 | Two-module organization | Smith S10 (Smith et al., NeuroImage, 2011) |
+| Comp10 | 10/12 | 22 total; 18 evaluated | **Module A:** 1->2->3->4->5, 3->2, 5->3, 1->4, 2->5<br>**Module B:** 6->7->8->9->10, 8->7, 10->8, 6->9, 7->10<br>**Cross-module:** 5->6, 9->2<br>**Hidden drivers:** 11->{2,5}, 12->{7,10}; weights 0.4 | Combined indirect paths, feedback, modular structure, two hidden drivers, and heterogeneous HRFs (regional delays −0.60–0.75 s; transit multipliers 0.85–1.20; realization variation*) | Present-study combined topology |
+| Macq28 | 28/28 | 52 | Fixed weighted SmallDegree matrix; weights 0.468–0.551; 10 cycles, including five reciprocal pairs | Larger recurrent network with independently varying regional HRFs* | SmallDegree topology (Sánchez-Romero et al., 2019), derived from Markov et al. (Cereb. Cortex, 2014) |
 
-Unless otherwise stated, each condition comprised 50 independent 300-s realizations sampled at TR=1 s. The connectivity matrix was fixed within each condition, while neural inputs, measurement noise, and specified HRF perturbations varied across realizations. Simulations used Markov-switching Gaussian-mixture neural inputs and temporally correlated non-Gaussian BOLD noise at 10-dB SNR, with 5% outliers, a large-to-small noise-scale ratio of 5, and AR(1) coefficient 0.4.
+For conditions derived from previous benchmarks, topology and connection weights were retained from the cited source unless a modification is explicitly specified.
 
+\* Across realizations, HRF-delay SD=0.10 s and transit-time CV=5%; values were bounded to ±1.50 s and 0.65–1.40 s. HRF timing variability was motivated by Handwerker et al. (NeuroImage, 2004) and Smith et al. (NeuroImage, 2011).
+
+These experiments extend the validation beyond isolated 3–5-ROI DAGs and test the reviewer’s concerns separately and jointly. They remain controlled simulations rather than comprehensive whole-brain validation, and we will constrain our claims accordingly.
 
 
 
