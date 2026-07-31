@@ -4,7 +4,7 @@ We appreciate the additional comments. We agree that the current evidence does n
 
 ## 1. Expanded simulations and reliability
 
-- **Additional simulation topologies and performance.** We expanded the validation with diagnostic conditions targeting indirect paths, hidden common causes, feedback loops, modular structure, and heterogeneous hemodynamics; a 10-ROI condition testing their coexistence; and a 28-ROI macaque-derived recurrent topology. Table 1 reports comparative performance, while Appendix Table Y defines each topology, manipulation, and source.
+- **Additional simulation topologies and performance.** We expanded the validation with diagnostic conditions targeting indirect paths, hidden common causes, feedback loops, modular structure, and heterogeneous hemodynamics; a 10-ROI condition testing their coexistence; and a 28-ROI macaque-derived recurrent topology. Table X reports comparative performance, while Appendix Table Y defines each topology, manipulation, and source.
 
 ### Table X. Performance across simulation conditions
 
