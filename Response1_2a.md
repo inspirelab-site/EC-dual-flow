@@ -16,7 +16,6 @@ Values are mean±SD across 50 realizations.
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---:|---:|---:|---:|
-
 | CD-e | Dual-flow | .888±.108 | .701±.226 | .690±.245 | .185±.158 |
 |      | GCap | .700±.129 | .493±.047 | .600±.202 | .310±.108 |
 |  | LiNGAM | .725±.315 | .632±.381 | .640±.379 | .210±.228 |
