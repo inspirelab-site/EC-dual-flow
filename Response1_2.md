@@ -10,8 +10,6 @@ Thank you for the additional comments. We agree that the current evidence does n
 
 - **Additonal Simulation Topologies.**
 
-
-
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---|---|---|---|
 | CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
@@ -31,9 +29,9 @@ Thank you for the additional comments. We agree that the current evidence does n
 |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
 | Chain (HRF) | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
+|  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
+|  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
 | Diam. | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
 |  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
 |  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
@@ -46,14 +44,14 @@ Thank you for the additional comments. We agree that the current evidence does n
 |  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
 | Feedback | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
+|  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
+|  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
 | Modular | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
+|  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
+|  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
 | Comp. | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
 |  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
 |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
