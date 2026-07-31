@@ -16,6 +16,4 @@
 
 In summary, Dual-flow provides a distribution-aware EC estimator validated across diverse controlled network conditions and intended for focused, prespecified circuit analysis. The results demonstrate a clear statistical-performance–computational-efficiency trade-off; exhaustive whole-brain deployment is not yet computationally practical and remains a target for further optimization.
 
-The expanded experiments substantially broaden the original validation but remain controlled stress tests rather than comprehensive whole-brain validation. We will constrain our claims to the network sizes and conditions evaluated.
-
 
