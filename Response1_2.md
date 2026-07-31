@@ -1,12 +1,10 @@
 # Response to Reviewer 1
 
-Thank you for the additional comments. We agree that the current evidence does not establish unrestricted whole-brain reliability or scalability. The present study is a proof of concept for a new distribution-aware channel-capacity framing of EC and its Dual-flow estimator. It demonstrates methodological feasibility and controlled directed-edge recovery, but does not present a ready-to-use system for exhaustive large-scale brain-network analysis.
+We appreciate the additional comments. We agree that the current evidence does not establish unrestricted whole-brain scalability, which was not the intended scope of the present study. We address the reviewer's additional concerns below:
 
-## 1. Reliability and generalization of the known-edge simulations
+## 1. Reliability and validity of the known-edge simulations
 
-- **Reliability across realizations.** Each three-ROI common-driver network contains only two true and four null directed pairs. Consequently, realization-level sensitivity changes in increments of .50, FPR in increments of .25, and AUROC is also coarse because it is based on only eight positive–negative edge comparisons. The large realization-level SDs therefore partly reflect metric discreteness. Across 50 realizations, Dual-flow recovered 90/100 and 79/100 true edges in the equal- and unequal-coupling conditions, respectively. Mean sensitivities were .900 (approximate 95% realization-bootstrap CI [.830, .960]) and .790 ([.720, .860]). Dual-flow produced 14/200 and 15/200 false-positive selections, corresponding to FPRs of .070 ([.030, .115]) and .075 ([.040, .115]). These aggregate results demonstrate high recovery and few false-positive selections under the tested common-driver conditions.
-
-- **Additional simulation topologies.** We appreciate the reviewer's feedback on helping us strengthening our analysis. We expanded the validation to address the reviewer’s concerns through matched diagnostic and combined conditions. We now made a comprehensive table of network topology and and their desired stress-test condition as well as performance of each method.
+- **Additional simulation topologies.** We appreciate the reviewer's reminder of possible complex senarios in complex brain systems, which further help us strengthen our analysis. We expanded the validation to address the reviewer’s concerns through matched diagnostic and combined conditions. We now made a comprehensive table of network topology and and their desired stress-test condition as well as performance of each method.
 
   | Net | Method | AUROC | Precision | Sensitivity | FPR |
   |---|---|---|---|---|---|
@@ -45,16 +43,21 @@ Thank you for the additional comments. We agree that the current evidence does n
   |  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
   |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
   |  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
-  | Mod. | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
+  | Mod10 | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
   |  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
   |  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
   |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
   |  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
-  | Comp. | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
+  | Comp10 | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
   |  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
   |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
   |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
   |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
+  | Macq28. | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+  |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+  |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+  |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 
 
 
@@ -67,6 +70,9 @@ Thank you for the additional comments. We agree that the current evidence does n
   The chain with the \(1\to5\) shortcut is the canonical S5 topology introduced by [Smith et al. (2011)](https://www.contrib.andrew.cmu.edu/org/fmri-research/Smith-FMRI-2011.pdf) and subsequently widely used as a controlled EC benchmark. We retained this topology and added diamond and common-driver networks to evaluate complementary feedforward structures, including indirect paths, convergent and divergent motifs, unequal coupling, and an omitted common driver.
 
   These experiments do not test feedback loops, explicit modular organization, multiple simultaneous confounders, heterogeneous regional hemodynamics, or their combined effects in a large network. The limited biological realism of small controlled networks is a general limitation of simulation-based EC validation, not a method-specific limitation of Dual-flow. All methods were evaluated on identical realizations and directed ground truth, so their comparative results remain valid within the tested conditions. The simplified topologies limit generalization, but they do not demonstrate that Dual-flow is uniquely more vulnerable than the baseline methods.
+
+
+- **Reliability across realizations.** Each three-ROI common-driver network contains only two true and four null directed pairs. Consequently, realization-level sensitivity changes in increments of .50, FPR in increments of .25, and AUROC is also coarse because it is based on only eight positive–negative edge comparisons. The large realization-level SDs therefore partly reflect metric discreteness. Across 50 realizations, Dual-flow recovered 90/100 and 79/100 true edges in the equal- and unequal-coupling conditions, respectively. Mean sensitivities were .900 (approximate 95% realization-bootstrap CI [.830, .960]) and .790 ([.720, .860]). Dual-flow produced 14/200 and 15/200 false-positive selections, corresponding to FPRs of .070 ([.030, .115]) and .075 ([.040, .115]). These aggregate results demonstrate high recovery and few false-positive selections under the tested common-driver conditions.
 
 - **Relation to broader simulation benchmarks.** The broader Smith suite includes larger modular networks, backward and cyclic connections, shared inputs, and heterogeneous HRFs across separate simulation conditions. We did not directly reuse the released datasets because they were generated under the original acquisition and additive-noise settings, whereas our validation specifically examined TR=1 s, 5-min scans, and non-Gaussian two-component Gaussian-mixture noise at 10 dB SNR. These settings are central to evaluating a distribution-aware estimator.
 
