@@ -4,60 +4,60 @@ We appreciate the additional comments. We agree that the current evidence does n
 
 ## 1. Reliability and validity of the known-edge simulations
 
-- **Additional simulation topologies.** We appreciate the reviewer's reminder of possible complex senarios in complex brain systems, which further help us strengthen our analysis. We expanded the validation to address the reviewer’s concerns through matched diagnostic and combined conditions. We now made a comprehensive table of network topology and and their desired stress-test condition as well as performance of each method.
+- **Additional simulation topologies.** We appreciate the reviewer’s identification of challenges that can arise in more complex brain networks. We expanded the validation using matched diagnostic conditions that isolate specific challenges and combined conditions that test their coexistence. The table below summarizes the primary condition tested by each topology and the performance of each method.
 
-  | Net | Method | AUROC | Precision | Sensitivity | FPR |
-  |---|---|---|---|---|---|
-  | CD-e | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
-  |  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
-  |  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
-  |  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
-  |  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
-  | CD-u | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
-  |  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
-  |  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
-  |  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
-  |  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
-  | Diam. | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
-  |  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
-  |  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
-  |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
-  |  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
-  | Diam(H) | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
-  |  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
-  |  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
-  |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
-  |  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |  
-  | Chain | Dual-flow | .948±.068 | .943±.116 | .724±.221 | .020±.043 |
-  |  | GCap | .430±.160 | .248±.286 | .164±.179 | .163±.099 |
-  |  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
-  |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
-  |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
-  | Chain (HRF) | Dual-flow | .964±.070 | .943±.134 | .772±.225 | .024±.061 |
-  |  | GCap | .652±.155 | .652±.277 | .400±.206 | .091±.091 
-  |  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
-  |  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
-  |  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
-  | Feed. | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
-  |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
-  |  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
-  | Mod10 | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
-  |  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
-  |  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
-  |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
-  |  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
-  | Comp10 | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
-  |  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
-  |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
-  |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
-  |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
-  | Macq28. | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
-  |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Net | Primary condition tested | Method | AUROC | Precision | Sensitivity | FPR |
+|---|---|---|---|---|---|---|
+| CD-e | Divergent common-driver motif; equal coupling | Dual-flow | .925±.186 | .893±.223 | .900±.226 | .070±.152 |
+|  |  | GCap | .466±.353 | .387±.420 | .350±.381 | .290±.210 |
+|  |  | LiNGAM | .683±.342 | .560±.395 | .610±.408 | .260±.247 |
+|  |  | GIMME | .498±.018 | .000±.000 | .000±.000 | .005±.035 |
+|  |  | GC | .528±.293 | .383±.286 | .490±.357 | .410±.207 |
+| CD-u | Divergent common-driver motif; unequal coupling | Dual-flow | .910±.168 | .873±.222 | .790±.249 | .075±.136 |
+|  |  | GCap | .405±.310 | .287±.404 | .210±.287 | .275±.184 |
+|  |  | LiNGAM | .690±.352 | .590±.390 | .630±.414 | .235±.223 |
+|  |  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
+|  |  | GC | .485±.297 | .327±.301 | .390±.354 | .400±.202 |
+| Diam | Convergence and parallel indirect pathways | Dual-flow | .888±.101 | .653±.135 | .836±.170 | .156±.077 |
+|  |  | GCap | .553±.180 | .379±.211 | .412±.215 | .241±.111 |
+|  |  | LiNGAM | .717±.140 | .499±.149 | .640±.185 | .227±.096 |
+|  |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
+|  |  | GC | .564±.199 | .304±.164 | .484±.259 | .376±.108 |
+| Diam(H) | Omitted common driver and latent-node confounding | Dual-flow | .911±.133 | .865±.185 | .767±.226 | .056±.079 |
+|  |  | GCap | .545±.241 | .415±.320 | .367±.263 | .173±.106 |
+|  |  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
+|  |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
+|  |  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
+| Chain | Canonical indirect pathway with direct shortcut | Dual-flow | .948±.068 | .943±.116 | .724±.221 | .020±.043 |
+|  |  | GCap | .430±.160 | .248±.286 | .164±.179 | .163±.099 |
+|  |  | LiNGAM | .684±.195 | .460±.201 | .580±.219 | .248±.120 |
+|  |  | GIMME | .522±.051 | .230±.419 | .052±.097 | .008±.022 |
+|  |  | GC | .506±.118 | .251±.093 | .380±.158 | .379±.094 |
+| Chain (HRF) | Heterogeneous regional hemodynamics | Dual-flow | .964±.070 | .943±.134 | .772±.225 | .024±.061 |
+|  |  | GCap | .652±.155 | .652±.277 | .400±.206 | .091±.091 |
+|  |  | LiNGAM | .606±.151 | .431±.222 | .360±.214 | .148±.069 |
+|  |  | GIMME | .606±.024 | 1.000±.000 | .212±.048 | .000±.000 |
+|  |  | GC | .723±.117 | .707±.278 | .380±.199 | .095±.111 |
+| Feedback | Reciprocal and recurrent feedback | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | LiNGAM | .566±.141 | .467±.181 | .370±.169 | .275±.103 |
+|  |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
+|  |  | GC | .478±.126 | .363±.163 | .333±.157 | .377±.149 |
+| Mod10 | Modular organization and sparse cross-module connections | Dual-flow | .929±.064 | .955±.079 | .600±.198 | .005±.011 |
+|  |  | GCap | .528±.108 | .328±.166 | .207±.129 | .059±.028 |
+|  |  | LiNGAM | .639±.121 | .434±.173 | .387±.150 | .076±.039 |
+|  |  | GIMME | .517±.034 | .228±.384 | .040±.069 | .005±.010 |
+|  |  | GC | .535±.103 | .220±.126 | .275±.129 | .155±.069 |
+| Comp10 | Combined feedback, modularity, latent drivers, indirect paths, and HRF heterogeneity | Dual-flow | .724±.064 | .648±.111 | .517±.100 | .071±.025 |
+|  |  | GCap | .591±.066 | .525±.111 | .309±.058 | .073±.026 |
+|  |  | LiNGAM | .561±.067 | .430±.152 | .252±.093 | .091±.044 |
+|  |  | GIMME | .559±.017 | .405±.148 | .154±.042 | .062±.019 |
+|  |  | GC | .636±.035 | .542±.101 | .301±.112 | .070±.042 |
+| Macq28 | Larger-scale macaque-derived sparse recurrent network with heterogeneous HRFs | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  |  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 
 
 
