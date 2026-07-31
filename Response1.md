@@ -44,6 +44,16 @@ All methods used the same realizations, directed ground truth, and binarization 
 |  | LiNGAM | .755±.171 | .555±.197 | .733±.202 | .218±.119 |
 |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
 |  | GC | .558±.250 | .300±.197 | .507±.318 | .402±.134 |
+| Feedback | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+| Modular | Dual-flow | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GCap | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | LiNGAM | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GIMME | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
+|  | GC | xx±.xx | .xx±.xx | .xx±.xx | .xx±.xx |
 | Comp. | Dual-flow | .724±.064 | .442±.103 | .648±.078 | .216±.068 |
 |  | GCap | .591±.066 | .380±.088 | .408±.079 | .172±.049 |
 |  | LiNGAM | .561±.067 | .284±.067 | .412±.086 | .269±.063 |
