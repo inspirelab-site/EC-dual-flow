@@ -62,12 +62,3 @@ Values are mean±SD across 50 realizations. Threshold-dependent metrics use the 
 **N/E:** not evaluated. GIMME is documented for up to 20 ROIs; the source study likewise excluded it from the macaque simulations (Sánchez-Romero et al., 2019).
 
 Dual-flow achieved the highest AUROC in every available comparison (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 CD-e/u realizations each, AUROCs were .888±.108 and .858±.104. Threshold metrics are coarse because each realization has two true and four null edges, yielding sensitivity/FPR increments of .50/.25. Raising the threshold from .4 to .6 reduced FPR from .360 to .185 (CD-e) and .275 to .170 (CD-u), while sensitivity fell from .840 to .690 and .700 to .600; AUROC was unchanged. Thus, metric discreteness and threshold selection partly explain the sensitivity/FPR SDs, while edge ranking remained strong; Dual-flow achieved the highest AUROC in both common-driver conditions.
-
-responded this?
-Thank you for adding the known-edge simulations and computational-cost comparisons. These results strengthen the experimental evaluation, but I do not believe the original concerns regarding validity and scalability have been fully resolved.
-
-1. Limited scale of the synthetic networks
-
-The new simulations contain only 3–5 ROIs, with at most 20 candidate directed edges, and are restricted to relatively simple common-driver, chain, and diamond-DAG structures. These experiments are useful as preliminary validation, but they remain far from realistic brain networks containing tens or hundreds of ROIs.
-
-Several key metrics also show substantial variability across the 50 realizations, particularly in the common-driver settings. Moreover, larger networks introduce multiple confounders, indirect paths, feedback loops, modular structure, hidden nodes, and heterogeneous hemodynamic effects. Since the proposed method models each directed ROI pair independently, these factors may become increasingly problematic at larger scales.
