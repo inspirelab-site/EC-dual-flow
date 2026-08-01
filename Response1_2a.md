@@ -4,7 +4,7 @@ We thank the reviewer for identifying two important limitations: validation unde
 
 ## 1. Expanded simulation validation and reliability
 
-- **Expanded network topologies and confounding covarites.** Using the simulation framework and settings described in our initial rebuttal, we expanded the validation from four to ten conditions to address the challenges identified by the reviewer individually and jointly: equal- and unequal-coupling common drivers; diamond and hidden-driver diamond networks; chain and heterogeneous-HRF chain networks; a feedback network; a 10-ROI modular network; a 10-ROI combined stress test; and a 28-ROI macaque-derived recurrent topology.
+- **Expanded network topologies and confounding covariates.** Using the simulation framework and settings described in our initial rebuttal, we expanded the validation from four to ten conditions to address the challenges identified by the reviewer individually and jointly: equal- and unequal-coupling common drivers; diamond and hidden-driver diamond networks; chain and heterogeneous-HRF chain networks; a feedback network; a 10-ROI modular network; a 10-ROI combined stress test; and a 28-ROI macaque-derived recurrent topology.
 
   The chain and diamond conditions test indirect pathways; common-driver and hidden-diamond conditions test omitted causes; Feedback tests reciprocal and recurrent connections; Mod10 tests modular structure; Chain-HRF tests regional hemodynamic heterogeneity; Comp10 tests their coexistence; and Macq28 tests a larger recurrent topology.
 
