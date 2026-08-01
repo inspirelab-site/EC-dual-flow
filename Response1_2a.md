@@ -64,7 +64,7 @@ We thank the reviewer for identifying two important limitations: validation unde
   | Mac.-28 | Dual-flow | .885±.018 | .389±.102 | .634±.098 | .086±.043 |
   |  | GCap | .845±.022 | .260±.055 | .612±.057 | .139±.047 |
   |  | LiNGAM | .578±.038 | .124±.038 | .165±.068 | .088±.029 |
-  |  | GIMME | — | — | — | — |
+  |  | GIMME | NE | NE | NE | NE |
   |  | GC | .679±.029 | .174±.086 | .102±.070 | .035±.024 |
   
   **Note on the evaluation procedure.** Our initial evaluation measured the dominant direction within each ROI pair, consistent with common pairwise directionality evaluations (Roebroeck et al., *NeuroImage*, 2005; Smith et al., *NeuroImage*, 2011). This was appropriate for the original nonreciprocal topologies but cannot represent reciprocal feedback, where X->Y and Y->X may both be true. We therefore evaluated every ordered edge independently, allowing zero, one, or both directions within each pair. For each realization, AUROC was computed from the directed EC scores across all N(N−1) candidate edges; precision, sensitivity, and FPR were computed after independently thresholding each normalized directed score at the prespecified threshold of 0.4. This full-topology evaluation was applied uniformly to every method and condition. Differences from the initial table therefore reflect the expanded evaluation target—from dominant-direction recovery to complete directed-edge recovery—while the underlying estimator outputs remained unchanged.
