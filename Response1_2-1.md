@@ -1,10 +1,6 @@
-We sincerely thank the reviewer for this constructive follow-up and address Point 1 below.
+We thank the reviewer and address Point 1. Using our original settings, we expanded validation to 10 conditions: CD-e/u, Diamond/hidden, Chain/HRF, Feedback, Mod10, Comp10, and a 28-ROI macaque-derived recurrent topology with 756 candidate directed pairs (Appendix Table Y). These test indirect paths, common and omitted causes, recurrence, modularity, heterogeneous HRFs, their coexistence, and network scale. Each simulated 50 realizations.
 
-Using the simulation settings described in our initial rebuttal, we expanded validation to ten conditions (Appendix Table Y): equal- and unequal-coupling common drivers; diamond and hidden-driver diamond networks; chain and heterogeneous-HRF chain networks; Feedback; Mod10; Comp10; and a 28-ROI macaque-derived recurrent topology. They test indirect pathways, common and omitted causes, recurrence, modularity, heterogeneous hemodynamics, their coexistence, and a larger topology. We generated 50 matched realizations per condition; all methods used identical data and ground truth within each completed comparison.
-
-### Table X. Performance across simulation conditions
-
-Values are mean±SD across 50 realizations. Threshold-dependent metrics use the prespecified normalized-score threshold of 0.4.
+Table X. 
 
 | Net | Method | AUROC | Precision | Sensitivity | FPR |
 |---|---|---:|---:|---:|---:|
@@ -18,12 +14,12 @@ Values are mean±SD across 50 realizations. Threshold-dependent metrics use the 
 |  | LiNGAM | .713±.318 | .578±.393 | .600±.404 | .220±.206 |
 |  | GIMME | .750±.000 | 1.000±.000 | .500±.000 | .000±.000 |
 |  | GC | .610±.187 | .399±.207 | .560±.314 | .405±.188 |
-| Diamond | Dual-flow | .874±.076 | .527±.125 | .732±.216 | .245±.122 |
+| Diam | Dual-flow | .874±.076 | .527±.125 | .732±.216 | .245±.122 |
 |  | GCap | .777±.050 | .465±.073 | .672±.228 | .276±.129 |
 |  | LiNGAM | .751±.126 | .605±.217 | .560±.236 | .131±.089 |
 |  | GIMME | .505±.032 | .040±.198 | .012±.063 | .003±.013 |
 |  | GC | .607±.157 | .357±.180 | .468±.204 | .307±.140 |
-| Diamond (hidden) | Dual-flow | .910±.079 | .552±.136 | .807±.224 | .249±.132 |
+| Diam (H) | Dual-flow | .910±.079 | .552±.136 | .807±.224 | .249±.132 |
 |  | GCap | .799±.070 | .469±.070 | .793±.222 | .309±.117 |
 |  | LiNGAM | .787±.172 | .627±.259 | .647±.256 | .140±.105 |
 |  | GIMME | .502±.037 | .040±.198 | .013±.066 | .009±.030 |
@@ -38,7 +34,7 @@ Values are mean±SD across 50 realizations. Threshold-dependent metrics use the 
 |  | LiNGAM | .693±.134 | .446±.195 | .448±.220 | .180±.084 |
 |  | GIMME | .605±.024 | .990±.071 | .212±.048 | .001±.009 |
 |  | GC | .752±.099 | .700±.280 | .392±.206 | .105±.124 |
-| Feedback | Dual-flow | .889±.071 | .776±.159 | .793±.174 | .195±.157 |
+| Feed. | Dual-flow | .889±.071 | .776±.159 | .793±.174 | .195±.157 |
 |  | GCap | .613±.043 | .490±.039 | .628±.168 | .438±.130 |
 |  | LiNGAM | .563±.147 | .462±.176 | .378±.170 | .288±.112 |
 |  | GIMME | .333±.006 | .000±.000 | .000±.000 | .250±.000 |
@@ -59,6 +55,6 @@ Values are mean±SD across 50 realizations. Threshold-dependent metrics use the 
 |  | GIMME | N/E | N/E | N/E | N/E |
 |  | GC | .679±.029 | .174±.086 | .102±.070 | .035±.024 |
 
-**N/E:** not evaluated. GIMME is documented for up to 20 ROIs; the source study likewise excluded it from the macaque simulations (Sánchez-Romero et al., 2019).
+Dual-flow achieved the highest AUROC in every available comparison (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 realizations per common-driver condition, AUROCs were .888±.108 for CD-e and .858±.104 for CD-u. Because each realization contains only two true and four null edges, sensitivity and FPR change in increments of .50 and .25, respectively. Raising the threshold from .4 to .6 reduced FPR from .360 to .185 and from .275 to .170, while sensitivity decreased from .840 to .690 and from .700 to .600; AUROC was unchanged. Thus, coarse metric resolution and threshold choice partly explain the SDs, while edge-ranking performance remained strong. Overall, Dual-flow remained reliable across individual stressors, their coexistence, and increased network size.
 
-Dual-flow achieved the highest AUROC in every available comparison (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 CD-e/u realizations each, AUROCs were .888±.108 and .858±.104. Threshold metrics are coarse because each realization has two true and four null edges, yielding sensitivity/FPR increments of .50/.25. Raising the threshold from .4 to .6 reduced FPR from .360 to .185 (CD-e) and .275 to .170 (CD-u), while sensitivity fell from .840 to .690 and .700 to .600; AUROC was unchanged. Thus, metric discreteness and threshold selection partly explain the sensitivity/FPR SDs, while edge ranking remained strong; Dual-flow achieved the highest AUROC in both common-driver conditions.
+Pairwise estimation and scale. Dual-flow fits each ordered pair independently; with fixed X/Y data, including or excluding other recorded ROIs does not change the score. Thus, a prespecified circuit can be analyzed without fitting a whole-brain model. However, unobserved common drivers, indirect paths, feedback, and regional HRFs may still influence the score; our diagnostic conditions test these factors separately and jointly. Larger N increases the number of pairwise evaluations and multiple comparisons, but not the dimensionality of an individual pairwise model.
