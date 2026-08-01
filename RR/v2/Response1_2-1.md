@@ -1,4 +1,4 @@
-We thank the reviewer and address Point 1. We expanded validation to ten conditions spanning 3–28 ROIs and up to 756 directed pairs: CD-e/u, Diamond/hidden, Chain/HRF, Feedback, Mod10, Comp10, and Macq28 (Table Y). Across 50 realizations each, they test indirect paths, omitted causes, recurrence, modularity, heterogeneous HRFs, and their coexistence.
+We expanded validation to ten conditions spanning 3–28 ROIs and up to 756 directed pairs: CD-e/u, Diamond/hidden, Chain/HRF, Feedback, Mod10, Comp10, and Macq28 (Table Y). We evaluated 50 realizations per condition; together, these conditions test indirect paths, omitted causes, recurrence, modularity, heterogeneous HRFs, and their coexistence.
 
 Table X. 
 
