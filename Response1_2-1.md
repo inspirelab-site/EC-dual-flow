@@ -1,4 +1,4 @@
-We thank the reviewer and address Point 1. Using our original settings, we expanded validation to 10 conditions: CD-e/u, Diamond/hidden, Chain/HRF, Feedback, Mod10, Comp10, and a 28-ROI macaque-derived recurrent topology with 756 candidate directed pairs (Appendix Table Y). These test indirect paths, common and omitted causes, recurrence, modularity, heterogeneous HRFs, their coexistence, and network scale. Each simulated 50 realizations.
+We thank the reviewer and address Point 1: We expanded validation to 10 conditions: CD-e/u, Diamond/hidden, Chain/HRF, Feedback, Mod10, Comp10, and a 28-ROI macaque-derived recurrent topology with 756 candidate directed pairs (see Table Y). These conditions test indirect paths, common and omitted causes, recurrence, modularity, heterogeneous HRFs, their coexistence, and network scale. Each condition included 50 realizations.
 
 Table X. 
 
@@ -52,9 +52,10 @@ Table X.
 | Macq28 | Dual-flow | .884±.018 | .387±.103 | .631±.095 | .087±.047 |
 |  | GCap | .844±.022 | .256±.054 | .615±.056 | .142±.049 |
 |  | LiNGAM | .578±.038 | .124±.038 | .165±.068 | .088±.029 |
-|  | GIMME | N/E | N/E | N/E | N/E |
 |  | GC | .679±.029 | .174±.086 | .102±.070 | .035±.024 |
 
-Dual-flow achieved the highest AUROC in every available comparison (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 realizations per common-driver condition, AUROCs were .888±.108 for CD-e and .858±.104 for CD-u. Because each realization contains only two true and four null edges, sensitivity and FPR change in increments of .50 and .25, respectively. Raising the threshold from .4 to .6 reduced FPR from .360 to .185 and from .275 to .170, while sensitivity decreased from .840 to .690 and from .700 to .600; AUROC was unchanged. Thus, coarse metric resolution and threshold choice partly explain the SDs, while edge-ranking performance remained strong. Overall, Dual-flow remained reliable across individual stressors, their coexistence, and increased network size.
+Values are mean±SD; threshold=.4 (see Point 1-appendix).
 
-Pairwise estimation and scale. Dual-flow fits each ordered pair independently; with fixed X/Y data, including or excluding other recorded ROIs does not change the score. Thus, a prespecified circuit can be analyzed without fitting a whole-brain model. However, unobserved common drivers, indirect paths, feedback, and regional HRFs may still influence the score; our diagnostic conditions test these factors separately and jointly. Larger N increases the number of pairwise evaluations and multiple comparisons, but not the dimensionality of an individual pairwise model.
+**Performance.** Dual-flow achieved the highest AUROC across all ten conditions (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 CD-e/u realizations each, AUROCs were .888±.108/.858±.104. Each realization has only two true and four null edges, so sensitivity/FPR change in .50/.25 increments. Raising the threshold from .4 to .6 reduced FPR from .360/.275 to .185/.170 and sensitivity from .840/.700 to .690/.600; AUROC was unchanged. Thus, discreteness and threshold choice partly explain the SDs, while edge ranking remained strong. > Overall, Dual-flow maintained strong, competitive performance across individual stressors, their coexistence, and the larger network.
+
+**Pairwise estimation and network scale.** We agree that pairwise fits do not model the full network jointly. As network complexity increases, X and Y may be influenced by additional common drivers, indirect paths, feedback, and regional HRF differences that a pairwise model cannot explicitly separate. Our diagnostic conditions isolate these challenges, while Comp10 and Macq28 test their coexistence in larger recurrent networks. However, for fixed X and Y time series and preprocessing, including or excluding other recorded ROIs does not change the X-to-Y score, making focused-circuit analysis feasible without a whole-brain fit.
