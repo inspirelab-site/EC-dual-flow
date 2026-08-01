@@ -61,6 +61,13 @@ Values are mean±SD across 50 realizations. Threshold-dependent metrics use the 
 
 **N/E:** not evaluated. GIMME is documented for up to 20 ROIs; the source study likewise excluded it from the macaque simulations (Sánchez-Romero et al., 2019).
 
-Dual-flow achieved the highest AUROC in every available comparison (.858–.949). Performance remained strong in Comp10 (AUROC=.879; sensitivity=.727) and Macq28 (AUROC=.884; sensitivity=.631). Thus, Dual-flow remained reliable when the tested challenges coexisted and when network size increased.
+Dual-flow achieved the highest AUROC in every available comparison (.858–.949), including Comp10 (.879) and Macq28 (.884). Across 50 CD-e/u realizations each, AUROCs were .888±.108 and .858±.104. Threshold metrics are coarse because each realization has two true and four null edges, yielding sensitivity/FPR increments of .50/.25. Raising the threshold from .4 to .6 reduced FPR from .360 to .185 (CD-e) and .275 to .170 (CD-u), while sensitivity fell from .840 to .690 and .700 to .600; AUROC was unchanged. Thus, metric discreteness and threshold selection partly explain the sensitivity/FPR SDs, while edge ranking remained strong; Dual-flow achieved the highest AUROC in both common-driver conditions.
 
-Reliability across realizations. Across 50 realizations, threshold-independent recovery remained strong, with AUROCs of .888±.108 and .858±.104 in CD-e and CD-u. Threshold-dependent metrics are necessarily coarse because each realization contains only two true and four null directed edges; sensitivity therefore changes in increments of .50 and FPR in increments of .25. Increasing the threshold from 0.4 to 0.6 reduced FPR from .360 to .185 and from .275 to .170, with corresponding sensitivity reductions from .840 to .690 and from .700 to .600; AUROC was unchanged. Thus, discreteness and the selected operating threshold partly explain the larger sensitivity and FPR SDs. The common-driver conditions remained challenging across EC methods, but Dual-flow achieved the highest AUROC in both.
+responded this?
+Thank you for adding the known-edge simulations and computational-cost comparisons. These results strengthen the experimental evaluation, but I do not believe the original concerns regarding validity and scalability have been fully resolved.
+
+1. Limited scale of the synthetic networks
+
+The new simulations contain only 3–5 ROIs, with at most 20 candidate directed edges, and are restricted to relatively simple common-driver, chain, and diamond-DAG structures. These experiments are useful as preliminary validation, but they remain far from realistic brain networks containing tens or hundreds of ROIs.
+
+Several key metrics also show substantial variability across the 50 realizations, particularly in the common-driver settings. Moreover, larger networks introduce multiple confounders, indirect paths, feedback loops, modular structure, hidden nodes, and heterogeneous hemodynamic effects. Since the proposed method models each directed ROI pair independently, these factors may become increasingly problematic at larger scales.
