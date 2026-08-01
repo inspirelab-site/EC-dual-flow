@@ -10,7 +10,7 @@
 | | 512 | 146.4±250.5 | 3346 | 515 |
 | | 1024 | 108.8±182.1 | 3303 | 522 |
 | | 2048 | 150.3±132.3 | 3348 | 538 |
-| | 4096 | 206.9±319.0 | -- | 524 |
+| | 4096 | -- | -- | -- |
 
   The expanded simulations used (T=512) for networks with at most 10 observed ROIs and (T=256) for the 28-ROI network. These smaller settings do not substantially reduce single-pair latency, but they reduce the resources used by each evaluation and permit more independent directed-pair evaluations to be executed concurrently on the same GPU. This improves potential system-level throughput but does not remove the (N(N-1)) growth in the number of directed-pair evaluations.
 
