@@ -4,7 +4,13 @@
 
 - **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured at T=1024 under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency in the current implementation, not the time required by a computation that fully occupies an NVIDIA L40S. Runtime per pair is broadly comparable across the evaluated values ($T\in${256, 512, 1024, 2048, 4096}), but the GPU resources used by a single evaluation differ substantially with (T). For example, at (T=512), one directed-pair evaluation uses only approximately 1–3% of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
 
-  [Insert runtime- and GPU-utilization-by-(T) table here.]
+| Method | T | Time (s)/directed ROI pair | RAM (MB) | GPU (MB) |
+|---|---|---|---|
+| Dual-flow | 256 | 131.0.4±169.3 | 3382 | 512 |
+| | 512 | 146.4±250.5 | 3346 | 515 |
+| | 1024 | 108.8±182.1 | 3303 | 522 |
+| | 2048 | 150.3±.132.3 | 3348 | 538 |
+| | 4096 | -- | -- | -- |
 
   The expanded simulations used (T=512) for networks with at most 10 observed ROIs and (T=256) for the 28-ROI network. These smaller settings do not substantially reduce single-pair latency, but they reduce the resources used by each evaluation and permit more independent directed-pair evaluations to be executed concurrently on the same GPU. This improves potential system-level throughput but does not remove the (N(N-1)) growth in the number of directed-pair evaluations.
 
