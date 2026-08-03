@@ -38,11 +38,11 @@
   
   **Table Z4. Summary of the repeated throughput benchmarks.**
   
-  | Dataset | GPUs | Total wall time (s) | Amortized time/evaluation | Throughput | Multi-GPU speedup (may or may not include) | Four-GPU efficiency | GPU utilization |
+  | Dataset | GPUs | Total wall time (s) | Amortized time per evaluation | Throughput | Multi-GPU speedup (may or may not include) | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
-  | Rat BOLD | 1xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
+  | Rat BOLD | 1xL40S | 491.51+/-119.87 | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
   | Rat BOLD | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
-  | Mod10 | 1xL40S | [xx±xx]| [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
+  | Mod10 | 1xL40S | 4707.00+/-581.45 | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
   | Mod10 | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
   
   For each dataset, multi-GPU speedup is defined as
