@@ -19,7 +19,7 @@ The concurrency setting was optimized on a single L40S GPU and then applied unch
 **Table Z2. Throughput benchmark results.**
 | Dataset | GPUs | Evaluations/run | Concurrent jobs/GPU | Wall time (s) | Amortized time/evaluation (s) | Relative Speedup | 4×L40S efficiency | Mean GPU utilization |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Rat BOLD | 1×L40S | 44 | 1 (sequential, without dlaccelerate) | 6107 | 138.8 | 1.00× | — | 6.46%±2.61% |
+| Rat BOLD | 1×L40S | 44 | 1 (sequential, without `dlaccelerate`) | 6107 | 138.8 | 1.00× | — | 6.46%±2.61% |
 | Rat BOLD | 1×L40S | 44 | 8 | 439.07±92.81 | 9.98±2.11 | 1.00× | — | 82.28%±2.49% |
 | Rat BOLD | 4×L40S | 44 | 8 | 382.77±108.16 | 8.70±2.46 | 1.15× | 28.75% | 42.04%±2.47% |
 | Mod10 | 1×L40S | 900 | 8 | 4707.00±581.45 | 5.23±0.65 | 1.00× | — | 77.32%±7.35% |
