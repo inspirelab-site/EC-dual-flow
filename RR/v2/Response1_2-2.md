@@ -2,7 +2,7 @@
 
 ## 2. Computational cost, practical scalability, and intended use
 
-- **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency, not the time required by a computation that fully occupies an NVIDIA L40S. For example, one directed-pair evaluation (T=256) uses only approximately 6.46%+/-2.61% ($\in$[1%, 15%]) of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
+- **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency, not the time required by a computation that fully occupies an NVIDIA L40S. For example, one directed-pair evaluation (T=256) uses only approximately 6.46%±2.61% ($\in$[1%, 15%]) of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
   We now provide additional runtime reports for two benchmark computations: 1) Rat BOLD data (as reported in the initial response, which has 44 directed pairs in total) and 2) the simulated Mod10 data (see Table Y). Both datasets are detailed in Table Z1. Given varying $T$, making the estimates largely stable (see our sensitivity analysis in the initial rebuttal), we set T=256 for all evaluations and repeat the computation for each benchmark dataset 5 times.
 
   | Dataset | Instances | Dimensions (ROIs × timepoints) | Pairs/instance | Evaluations/run | Runs |
@@ -16,10 +16,10 @@
   
   | Execution mode | `dlaccelerate` | Maximum concurrently scheduled pair evaluations | Total time for 44 evaluations | Amortized time per evaluation | Measured individual-pair latency | Observed GPU-utilization range |
   |---|---:|---:|---:|---:|---:|---:|
-  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s |  6.46%+/-2.61% ($\in$[1%, 15%]) |
-  | Throughput optimized (`parfor` + MPS) | On | 8 | 315 s | 7.2 s | Contended; not interpreted individually | 78.90%+/-13.68% ($\in$[52%, 90%]) |
+  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139±142)s s |  6.46%±2.61% ($\in$[1%, 15%]) |
+  | Throughput optimized (`parfor` + MPS) | On | 8 | 315 s | 7.2 s | Contended; not interpreted individually | 78.90%±13.68% ($\in$[52%, 90%]) |
   
-  The (139+/-142)s value describes the distribution of individually measured sequential pair latencies. It is distinct from the amortized throughput value, which is calculated as total wall time divided by the number of completed evaluations. Under concurrent execution, individual pair latencies are contended and should not be interpreted as isolated per-pair computational costs.
+  The (139±142)s value describes the distribution of individually measured sequential pair latencies. It is distinct from the amortized throughput value, which is calculated as total wall time divided by the number of completed evaluations. Under concurrent execution, individual pair latencies are contended and should not be interpreted as isolated per-pair computational costs.
   
   The combined execution refinements reduced the total wall time from 6107 s to 315 s, corresponding to a 19.3 increase in system-level throughput on one L40S. This combined improvement should not be interpreted as reducing the estimator's total computational work by \(19.3\times\); it primarily converts previously unused GPU capacity into concurrent throughput. Dual-flow remains substantially more computationally expensive than the millisecond-scale comparison methods.
   
@@ -40,10 +40,10 @@
 
   | Dataset | GPUs | Evaluations/repetition | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
-  | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | 11.17±2.72 | 1.00× | — | 61.65%+/-34.53% |
-  | Rat BOLD | 4 × L40S | 44 | 382.77±108.16 | 8.70±2.46 | 1.28× | 32.10% | 42.04%+/-2.47% |
-  | Mod10 | 1 × L40S | 900 | 4707.00±581.45 | 5.23±0.65 | 1.00× | — | 77.32%+/-7.35% |
-  | Mod10 | 4 × L40S | 900 | 1272.74±122.57 | 1.41±0.14 | 3.70× | 92.46% | 67.63%+/-5.66% |
+  | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | 11.17±2.72 | 1.00× | — | 61.65%±34.53% |
+  | Rat BOLD | 4 × L40S | 44 | 382.77±108.16 | 8.70±2.46 | 1.28× | 32.10% | 42.04%±2.47% |
+  | Mod10 | 1 × L40S | 900 | 4707.00±581.45 | 5.23±0.65 | 1.00× | — | 77.32%±7.35% |
+  | Mod10 | 4 × L40S | 900 | 1272.74±122.57 | 1.41±0.14 | 3.70× | 92.46% | 67.63%±5.66% |
   
   For each dataset, multi-GPU speedup is defined as
 
