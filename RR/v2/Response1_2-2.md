@@ -11,10 +11,10 @@ We now benchmark attainable workload throughput using the same Dual-flow impleme
 The concurrency setting was optimized on a single L40S GPU and then applied unchanged to each GPU in the four-L40S configuration. Each optimized one- and four-L40S benchmark was repeated five times using matched pair-level random seeds. Our prior sensitivity analysis showed that mean capacity estimates varied by at most (4.30%) across (T\in{256,512,1024,2048,4096}). We therefore standardized the throughput benchmarks at (T=256).
 
 **Table Z1: Benchmarked workloads.**
-| Dataset | Instances | Dimensions (ROIs × timepoints) | Pairs/instance | Evaluations/run | Runs |
-|---|---:|---:|---:|---:|---:|
-| Rat BOLD | 22 | 2 × 1000 | 2 | 44 | 5 |
-| Mod10 | 10 | 10 × 300 | 90 | 900 | 5 |
+| Dataset  | Instances | Available dimensions (ROIs × time points) | Pairs/instance | Evaluations/run | Runs |
+| -------- | --------: | ----------------------------------------: | -------------: | --------------: | ---: |
+| Rat BOLD |        22 |                             (2\times1000) |              2 |              44 |    5 |
+| Mod10    |        10 |                             (10\times300) |             90 |             900 |    5 |
 
 **Table Z2. Throughput benchmark results.**
 | Dataset | GPUs | Evaluations/run | Concurrent jobs/GPU | Wall time (s) | Amortized time/evaluation (s) | Relative Speedup | 4×L40S efficiency | Mean GPU utilization |
