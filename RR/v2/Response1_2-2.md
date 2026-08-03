@@ -16,8 +16,8 @@
   
   | Execution mode | `dlaccelerate` | Maximum concurrently scheduled pair evaluations | Total time for 44 evaluations | Amortized time per evaluation | Measured individual-pair latency | Throughput | Observed GPU-utilization range |
   |---|---:|---:|---:|---:|---:|---:|---:|
-  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s | 25.9 evaluations/hour | 6.89%+/-2.61% ($\in$[1%, 15%] |
-  | Throughput optimized (`parfor` + MPS) | On | 4 | 282 s | 6.4 s | Contended; not interpreted individually | 561.7 evaluations/hour | XXXX |
+  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s | 25.9 evaluations/hour | 6.46%+/-2.61% ($\in$[1%, 15%]) |
+  | Throughput optimized (`parfor` + MPS) | On | 8 | 315 s | 7.2 s | Contended; not interpreted individually | 502.9 evaluations/hour | 78.90%+/-13.68% ($\in$[52%, 90%]) |
   
   The (139+/-142)s value describes the distribution of individually measured sequential pair latencies. It is distinct from the amortized throughput value, which is calculated as total wall time divided by the number of completed evaluations. Under concurrent execution, individual pair latencies are contended and should not be interpreted as isolated per-pair computational costs.
   
