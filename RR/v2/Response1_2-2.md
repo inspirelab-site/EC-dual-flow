@@ -14,10 +14,10 @@
   
   **Table Z2. Sequential latency and optimized throughput on one NVIDIA L40S (\(T=256\)).**
   
-  | Execution mode | `dlaccelerate` | Maximum concurrently scheduled pair evaluations | Total time for 44 evaluations | Amortized time per evaluation | Measured individual-pair latency | Throughput | Observed GPU-utilization range |
-  |---|---:|---:|---:|---:|---:|---:|---:|
-  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s | 25.9 evaluations/hour | 6.46%+/-2.61% ($\in$[1%, 15%]) |
-  | Throughput optimized (`parfor` + MPS) | On | 8 | 315 s | 7.2 s | Contended; not interpreted individually | 502.9 evaluations/hour | 78.90%+/-13.68% ($\in$[52%, 90%]) |
+  | Execution mode | `dlaccelerate` | Maximum concurrently scheduled pair evaluations | Total time for 44 evaluations | Amortized time per evaluation | Measured individual-pair latency | Observed GPU-utilization range |
+  |---|---:|---:|---:|---:|---:|---:|
+  | Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s |  6.46%+/-2.61% ($\in$[1%, 15%]) |
+  | Throughput optimized (`parfor` + MPS) | On | 8 | 315 s | 7.2 s | Contended; not interpreted individually | 78.90%+/-13.68% ($\in$[52%, 90%]) |
   
   The (139+/-142)s value describes the distribution of individually measured sequential pair latencies. It is distinct from the amortized throughput value, which is calculated as total wall time divided by the number of completed evaluations. Under concurrent execution, individual pair latencies are contended and should not be interpreted as isolated per-pair computational costs.
   
@@ -38,7 +38,7 @@
   
   **Table Z4. Summary of the repeated throughput benchmarks.**
 
-  | Dataset | GPUs | Evaluations per run | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
+  | Dataset | GPUs | Evaluations per repetition | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
   | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | xx±xx | 1.00× | — | xx |
   | Rat BOLD | 4 × L40S | 44 | xx±xx | xx±xx | xx× | xx% | xx |
