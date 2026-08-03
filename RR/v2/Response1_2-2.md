@@ -27,7 +27,7 @@
   
   **Table Z3. Execution-stage wall time across five complete benchmark repetitions (\(T=256\), `dlaccelerate` enabled).**
   
-  | Dataset | GPUs | Evaluations per repetition | Pair jobs scheduled concurrently | Rep. 1 | Rep. 2 | Rep. 3 | Rep. 4 | Rep. 5 | Mean \(\pm\) SD |
+  | Dataset | GPUs | Evaluations/repetition | Pair jobs scheduled concurrently | Rep. 1 | Rep. 2 | Rep. 3 | Rep. 4 | Rep. 5 | Mean \(\pm\) SD |
   |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
   | Rat BOLD | 1xL40S | 44 | 8 | 315.38 s | 561.72 s | 461.83 s | 483.66 s | 634.96 s | 491.51+/-119.87 s |
   | Rat BOLD | 4xL40S | 44 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
@@ -38,7 +38,7 @@
   
   **Table Z4. Summary of the repeated throughput benchmarks.**
 
-  | Dataset | GPUs | Evaluations per repetition | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
+  | Dataset | GPUs | Evaluations/repetition | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
   | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | xx±xx | 1.00× | — | xx |
   | Rat BOLD | 4 × L40S | 44 | xx±xx | xx±xx | xx× | xx% | xx |
