@@ -13,8 +13,8 @@ The concurrency setting was optimized on a single L40S GPU and then applied unch
 **Table Z1: Benchmarked workloads.**
 | Dataset  | Instances | Available dimensions (ROIs × time points) | Pairs/instance | Evaluations/run | Runs |
 | -------- | --------: | ----------------------------------------: | -------------: | --------------: | ---: |
-| Rat BOLD |        22 |                             (2\times1000) |              2 |              44 |    5 |
-| Mod10    |        10 |                             (10\times300) |             90 |             900 |    5 |
+| Rat BOLD |        22 |                             2x1000 |              2 |              44 |    5 |
+| Mod10    |        10 |                             10x300 |             90 |             900 |    5 |
 
 **Table Z2. Throughput benchmark results.**
 | Dataset | GPUs | Evaluations/run | Concurrent jobs/GPU | Wall time (s) | Amortized time/evaluation (s) | Relative Speedup | 4×L40S efficiency | Mean GPU utilization |
