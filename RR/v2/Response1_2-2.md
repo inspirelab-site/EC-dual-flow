@@ -27,11 +27,11 @@
   
   **Table Z3. Execution-stage wall time across five complete benchmark repetitions (\(T=256\), `dlaccelerate` enabled).**
   
-  | Dataset | GPUs | Evaluations/run | Pair jobs scheduled concurrently | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Mean \(\pm\) SD |
+  | Dataset | GPUs | Evaluations/run | Pair jobs scheduled concurrently | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Average |
   |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-  | Rat BOLD | 1xL40S | 44 | 8 | 315.38 s | 561.72 s | 461.83 s | 483.66 s | 634.96 s | 491.51+/-119.87 s |
+  | Rat BOLD | 1xL40S | 44 | 8 | 315.38 s | 561.72 s | 461.83 s | 483.66 s | 634.96 s | 491.51±119.87 s |
   | Rat BOLD | 4xL40S | 44 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
-  | Modular10 | 1xL40S | 900 | 8 | 4989.05 s | 4049.81 s | 4738.20 s | 5503.77 s | 4254.17 s | 4707.00+/-581.45 s |
+  | Modular10 | 1xL40S | 900 | 8 | 4989.05 s | 4049.81 s | 4738.20 s | 5503.77 s | 4254.17 s | 4707.00±581.45 s |
   | Modular10 | 4xL40S | 900 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
   
   The reported wall time covers the complete 44- or 900-evaluation of the directed EC pairs workload.
