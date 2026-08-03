@@ -34,7 +34,7 @@
   | Modular10 | 1xL40S | 900 | 8 | 4989.05 s | 4049.81 s | 4738.20 s | 5503.77 s | 4254.17 s | 4707.00+/-581.45 s |
   | Modular10 | 4xL40S | 900 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
   
-  The reported wall time covers the complete 44- or 900-evaluation of directed EC pair workload after the MATLAB workers and GPU devices have been initialized. Worker-pool creation and MPS initialization are excluded and will be reported separately if material.
+  The reported wall time covers the complete 44- or 900-evaluation of the directed EC pairs workload.
   
   **Table Z4. Summary of the repeated throughput benchmarks.**
   
