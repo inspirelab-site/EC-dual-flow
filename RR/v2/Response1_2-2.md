@@ -46,17 +46,17 @@
   | Mod10 | 4 × L40S | 900 | 1272.74±122.57 | 1.41±0.14 | 3.70× | 92.46% | 67.63%+/-5.66% |
   
   For each dataset, multi-GPU speedup is defined as
-  
-  \[
+
+  $$
   \mathrm{Speedup}_{4\mathrm{GPU}} =
   \frac{\text{optimized wall time on one L40S}}
-    {\text{optimized wall time on four L40S GPUs}},
-  \]
+    {\text{optimized wall time on four L40S GPUs}}
+  $$
   and four-GPU efficiency is
-  \[
+  $$
   \mathrm{Efficiency}_{4\mathrm{GPU}} =
-  \frac{\mathrm{Speedup}_{4\mathrm{GPU}}}{4}\times 100\%.
-  \]
+  \frac{\mathrm{Speedup}_{4\mathrm{GPU}}}{4}\times 100\%
+  $$
 
   \[
   \mathrm{Speedup}_{4\mathrm{GPU}}
