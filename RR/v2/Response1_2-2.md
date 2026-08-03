@@ -48,6 +48,17 @@
   For each dataset, multi-GPU speedup is defined as
   
   \[
+  \mathrm{Speedup}_{4\mathrm{GPU}} =
+  \frac{\text{optimized wall time on one L40S}}
+    {\text{optimized wall time on four L40S GPUs}},
+  \]
+  and four-GPU efficiency is
+  \[
+  \mathrm{Efficiency}_{4\mathrm{GPU}} =
+  \frac{\mathrm{Speedup}_{4\mathrm{GPU}}}{4}\times 100\%.
+  \]
+
+  \[
   \mathrm{Speedup}_{4\mathrm{GPU}}
   =
   \frac{\text{optimized wall time on one L40S}}
