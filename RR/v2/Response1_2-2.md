@@ -40,10 +40,10 @@
 
   | Dataset | GPUs | Evaluations/repetition | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
-  | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | 11.17±2.72 | 1.00× | — | xx |
-  | Rat BOLD | 4 × L40S | 44 | xx±xx | xx±xx | xx× | xx% | xx |
-  | Mod10 | 1 × L40S | 900 | 4707.00±581.45 | 5.23±0.65 | 1.00× | — | xx |
-  | Mod10 | 4 × L40S | 900 | xx±xx | xx±xx | xx× | xx% | xx |
+  | Rat BOLD | 1 × L40S | 44/5 | 491.51±119.87 | 11.17±2.72 | 1.00× | — | xx |
+  | Rat BOLD | 4 × L40S | 44/5 | xx±xx | xx±xx | xx× | xx% | xx |
+  | Mod10 | 1 × L40S | 900/5 | 4707.00±581.45 | 5.23±0.65 | 1.00× | — | xx |
+  | Mod10 | 4 × L40S | 900/5 | xx±xx | xx±xx | xx× | xx% | xx |
   
   For each dataset, multi-GPU speedup is defined as
   
