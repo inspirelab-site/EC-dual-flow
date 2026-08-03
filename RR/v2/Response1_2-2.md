@@ -2,15 +2,68 @@
 
 ## 2. Computational cost, practical scalability, and intended use
 
-- **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured at T=1024 under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency in the current implementation, not the time required by a computation that fully occupies an NVIDIA L40S. Runtime per pair is broadly comparable across the evaluated values ($T\in${256, 512, 1024, 2048, 4096}), but the GPU resources used by a single evaluation differ substantially with (T). For example, at (T=512), one directed-pair evaluation uses only approximately 1–3% of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
+- **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency in the current implementation, not the time required by a computation that fully occupies an NVIDIA L40S. For example, one directed-pair evaluation (T=256) uses only approximately 6.89%+/-2.61% ($\in$[1%, 15%]) of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
+  We now provide additional runtime reports for two benchmark computations: 1) Rat BOLD data (as reported in the initial response, which has 44 directed pairs in total) and 2) the simulated Mod10 data (see Table Y). Both datasets are detailed in Table Z1. Given varying $T$, making the estimates largely stable (see our sensitivity analysis in the initial rebuttal), we set T=256 for all evaluations and repeat the computation for each benchmark dataset 5 times.
 
-| Execution mode (T=256) | `dlaccelerate` | Concurrent pair evaluations | Total time for 44 evaluations | Amortized time/evaluation | GPU utilization |
+| Dataset | Data instances | Data dimensions/instance (ROIs × timepoints) | Directed pairs/instance | Evaluations/benchmark repetition | Benchmark repetitions |
 |---|---:|---:|---:|---:|---:|
-| Original sequential | Off | 1 | 6107 s | \(139\pm142\) s | 1%–15% |
-| Accelerated sequential | On | 1 | 1945 s | \(44\pm38\) s | Not recorded |
-| Throughput optimized | On | 4 | 282 s | 6.4 s | 44%–90% |
+| Rat BOLD | 22 scans | 2x1000 | 2 | 44 | 5 |
+| Mod10 | 10 simulated realizations | 10x300 | 90 | 900 | 5 |
 
-  The expanded simulations used (T=512) for networks with at most 10 observed ROIs and (T=256) for the 28-ROI network. These smaller settings do not substantially reduce single-pair latency, but they reduce the resources used by each evaluation and permit more independent directed-pair evaluations to be executed concurrently on the same GPU. This improves potential system-level throughput but does not remove the (N(N-1)) growth in the number of directed-pair evaluations.
+**Initial one-GPU result.** Table Z2 compares sequential latency with optimized throughput on the 22-scan rat BOLD workload. The current values correspond to one completed benchmark run and will be replaced by the five-repetition summary when all repetitions are complete.
+
+**Table Z2. Sequential latency and optimized throughput on one NVIDIA L40S (\(T=256\)).**
+
+| Execution mode | `dlaccelerate` | Maximum concurrently scheduled pair evaluations | Total time for 44 evaluations | Amortized time per evaluation | Measured individual-pair latency | Throughput | Observed GPU-utilization range |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Original Sequential | Off | 1 | 6107 s | 138.8 s | (139+/-142)s s | 25.9 evaluations/hour | 6.89%+/-2.61% ($\in$[1%, 15%] |
+| Throughput optimized (`parfor` + MPS) | On | 4 | 282 s | 6.4 s | Contended; not interpreted individually | 561.7 evaluations/hour | XXXX |
+
+The (139+/-142)s value describes the distribution of individually measured sequential pair latencies. It is distinct from the amortized throughput value, which is calculated as total wall time divided by the number of completed evaluations. Under concurrent execution, individual pair latencies are contended and should not be interpreted as isolated per-pair computational costs.
+
+The combined execution refinements reduced the total wall time from 6107 s to 282 s, corresponding to a 21.7 increase in system-level throughput on one L40S. This combined improvement should not be interpreted as reducing the estimator's total computational work by \(21.7\times\); it primarily converts previously unused GPU capacity into concurrent throughput. Dual-flow remains substantially more computationally expensive than the millisecond-scale comparison methods.
+
+**Repeated one- and four-GPU throughput benchmarks.** We additionally measure the execution-stage wall time of the complete Rat BOLD and Modular10 workloads on one and four L40S GPUs. Each benchmark configuration is repeated five times. Each repetition uses a prespecified base seed from which a distinct deterministic seed is generated for every directed pair. Corresponding one- and four-GPU runs use the same five seed sets. Thus, repetition 1 uses identical pair-level seeds in the one- and four-GPU configurations, repetition 2 uses another matched seed set, and so forth. This prevents multi-GPU speedup from being confounded by differences in stochastic convergence workload.
+
+**Table Z3. Execution-stage wall time across five complete benchmark repetitions (\(T=256\), `dlaccelerate` enabled).**
+
+| Dataset | GPUs | Evaluations per repetition | Pair jobs scheduled concurrently | Rep. 1 | Rep. 2 | Rep. 3 | Rep. 4 | Rep. 5 | Mean \(\pm\) SD |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Rat BOLD | 1xL40S | 44 | 8 | 282 s | [ ] | [ ] | [ ] | [ ] | [ ] s |
+| Rat BOLD | 4xL40S | 44 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
+| Modular10 | 1xL40S | 900 | 8 | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
+| Modular10 | 4xL40S | 900 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
+
+The reported wall time covers the complete 44- or 900-evaluation of directed EC pair workload after the MATLAB workers and GPU devices have been initialized. Worker-pool creation and MPS initialization are excluded and will be reported separately if material.
+
+**Table Z4. Summary of the repeated throughput benchmarks.**
+
+| Dataset | GPUs | Total wall time (s) | Amortized time/evaluation | Throughput | Multi-GPU speedup (may or may not include) | Four-GPU efficiency | GPU utilization |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Rat BOLD | 1xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
+| Rat BOLD | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
+| Mod10 | 1xL40S | [xx±xx]| [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
+| Mod10 | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
+
+For each dataset, multi-GPU speedup is defined as
+
+\[
+\mathrm{Speedup}_{4\mathrm{GPU}}
+=
+\frac{\text{optimized wall time on one L40S}}
+{\text{optimized wall time on four L40S GPUs}},
+\]
+
+and four-GPU efficiency is
+
+\[
+\mathrm{Efficiency}_{4\mathrm{GPU}}
+=
+\frac{\mathrm{Speedup}_{4\mathrm{GPU}}}{4}\times100\%.
+\]
+
+GPU utilization is measured device-wide using NVIDIA’s utilization metric over the timed execution interval. For the four-GPU configuration, we will report the time-weighted utilization for each device and its aggregate summary rather than treating overlapping pair windows as independent measurements.
+
 
 - **Acknowledged limitation and intended practical scope.** This computational limitation was already acknowledged in the original submission: “computational cost may limit scalability to larger datasets.” The present implementation is intended for focused, prespecified circuit analysis rather than exhaustive evaluation of all directed pairs among hundreds of ROIs. We will state this intended scope more prominently in the revised manuscript and avoid implying whole-brain computational practicality. Further computational optimization remains an important direction.
 
@@ -18,6 +71,4 @@
 
   Our empirical experiment follows this hypothesis-driven design: four task-relevant tongue-motion ROIs were prespecified from activation maps and neuroanatomical evidence, restricting inference to 12 directed pairs. Within this intended setting, distribution-aware modeling of non-Gaussian residuals provides a distinct methodological capability, although the current implementation is not designed for unrestricted whole-brain discovery.
 
-In summary, Dual-flow provides a distribution-aware EC estimator validated across diverse controlled network conditions and intended for focused, prespecified circuit analysis. The results demonstrate a clear statistical-performance–computational-efficiency trade-off; exhaustive whole-brain deployment is not yet computationally practical and remains a target for further optimization.
-
-
+In summary, the previous benchmark measured sequential single-pair latency under substantial GPU underutilization. The new benchmark measures attainable single-GPU throughput and achieves a 21.7-fold wall-clock reduction through acceleration and within-GPU concurrency. Dual-flow nevertheless remains more computationally demanding because it models the empirical residual distribution without imposing Gaussianity and iteratively optimizes the input distribution for each directed pair, thereby incorporating non-Gaussian and higher-order structure beyond Gaussian or second-order characterizations. In our controlled experiments, this richer modeling improved estimation accuracy at greater computational cost, illustrating the statistical-performance–computational-efficiency trade-off in learning and inference (Bottou and Bousquet, 2007; Chandrasekaran and Jordan, 2013). Accordingly, the present implementation targets focused, prespecified circuit analysis; unrestricted whole-brain deployment was not an objective of this study and remains a direction for future computational optimization.
