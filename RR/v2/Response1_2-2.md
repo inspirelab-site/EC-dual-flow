@@ -5,10 +5,10 @@
 - **Clarification of the reported runtime.** We apologize that our previous runtime comparison did not provide sufficient information about GPU utilization. The reported (110.4±161.3)s per directed pair was measured under sequential processing, with only one pair evaluated at a time. This value therefore represents single-pair latency, not the time required by a computation that fully occupies an NVIDIA L40S. For example, one directed-pair evaluation (T=256) uses only approximately 6.89%+/-2.61% ($\in$[1%, 15%]) of the L40S GPU’s compute capacity. Thus, the sequential runtime should not be multiplied by N(N-1) to estimate attainable wall-clock time without accounting for within-GPU concurrency.
   We now provide additional runtime reports for two benchmark computations: 1) Rat BOLD data (as reported in the initial response, which has 44 directed pairs in total) and 2) the simulated Mod10 data (see Table Y). Both datasets are detailed in Table Z1. Given varying $T$, making the estimates largely stable (see our sensitivity analysis in the initial rebuttal), we set T=256 for all evaluations and repeat the computation for each benchmark dataset 5 times.
 
-  | Dataset | Data instances | Data dimensions/instance (ROIs × timepoints) | Directed pairs/instance | Evaluations/benchmark repetition | Benchmark repetitions |
+  | Dataset | Instances | Dimensions (ROIs × timepoints) | Pairs/instance | Evaluations/run | Runs |
   |---|---:|---:|---:|---:|---:|
-  | Rat BOLD | 22 scans | 2x1000 | 2 | 44 | 5 |
-  | Mod10 | 10 simulated realizations | 10x300 | 90 | 900 | 5 |
+  | Rat BOLD | 22 | 2 × 1000 | 2 | 44 | 5 |
+  | Mod10 | 10 | 10 × 300 | 90 | 900 | 5 |
   
   **Initial one-GPU result.** Table Z2 compares sequential latency with optimized throughput on the 22-scan rat BOLD workload. The current values correspond to one completed benchmark run and will be replaced by the five-repetition summary when all repetitions are complete.
   
@@ -27,7 +27,7 @@
   
   **Table Z3. Execution-stage wall time across five complete benchmark repetitions (\(T=256\), `dlaccelerate` enabled).**
   
-  | Dataset | GPUs | Evaluations/repetition | Pair jobs scheduled concurrently | Rep. 1 | Rep. 2 | Rep. 3 | Rep. 4 | Rep. 5 | Mean \(\pm\) SD |
+  | Dataset | GPUs | Evaluations/run | Pair jobs scheduled concurrently | Run 1 | Run 2 | Run 3 | Run 4 | Run 5 | Mean \(\pm\) SD |
   |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
   | Rat BOLD | 1xL40S | 44 | 8 | 315.38 s | 561.72 s | 461.83 s | 483.66 s | 634.96 s | 491.51+/-119.87 s |
   | Rat BOLD | 4xL40S | 44 | 8/GPU; 32 total | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] s |
