@@ -37,13 +37,13 @@
   The reported wall time covers the complete 44- or 900-evaluation of the directed EC pairs workload.
   
   **Table Z4. Summary of the repeated throughput benchmarks.**
-  
-  | Dataset | GPUs | Total wall time (s) | Amortized time per evaluation | Throughput | Multi-GPU speedup (may or may not include) | Four-GPU efficiency | GPU utilization |
+
+  | Dataset | GPUs | Evaluations per run | Total wall time (s) | Amortized time/evaluation (s) | Speedup | Four-GPU efficiency | GPU utilization |
   |---|---:|---:|---:|---:|---:|---:|---:|
-  | Rat BOLD | 1xL40S | 491.51+/-119.87 | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
-  | Rat BOLD | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
-  | Mod10 | 1xL40S | 4707.00+/-581.45 | [xx±xx] s | [xx±xx]/hour | 1.00 times | --- | [ ] |
-  | Mod10 | 4xL40S | [xx±xx] | [xx±xx] s | [xx±xx]/hour | [ ]times | [ ]% | [ ] |
+  | Rat BOLD | 1 × L40S | 44 | 491.51±119.87 | xx±xx | 1.00× | — | xx |
+  | Rat BOLD | 4 × L40S | 44 | xx±xx | xx±xx | xx× | xx% | xx |
+  | Mod10 | 1 × L40S | xx | 4707.00±581.45 | xx±xx | 1.00× | — | xx |
+  | Mod10 | 4 × L40S | xx | xx±xx | xx±xx | xx× | xx% | xx |
   
   For each dataset, multi-GPU speedup is defined as
   
