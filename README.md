@@ -1,25 +1,18 @@
+
 # Distribution-Aware Channel Capacity for Effective Connectivity
 
-Anonymous MATLAB implementation for estimating effective connectivity from multivariate brain time-series data. The repository implements the proposed distribution-aware channel-capacity estimator and includes Gaussian channel capacity and pairwise Granger causality as baseline methods.
+MATLAB implementation of **distribution-aware channel capacity for effective-connectivity estimation** from multivariate brain time series.
 
-This repository is submitted as anonymized supplementary code for double-blind review.
+The method models each directed interaction as a finite-impulse-response (FIR) communication channel and estimates its information-carrying capacity while retaining the empirical distribution of fitted residual noise. A Dual-flow estimator jointly optimizes the admissible input distribution and estimates output entropy using normalizing flows.
+<img width="8512" height="2252" alt="image" src="https://github.com/user-attachments/assets/047eb72d-3912-42c1-9702-7ef2e97e5806" />
+
+The repository also includes Gaussian channel capacity and pairwise Granger causality for comparison.
 
 ---
 
 ## Overview
 
-Effective-connectivity estimation from brain-signal measurements often relies on Gaussian residual assumptions. This code estimates directed interactions using a finite-impulse-response channel model and compares:
-
-1. **Gaussian channel capacity**  
-   Capacity estimated under a Gaussian residual-noise assumption.
-
-2. **Distribution-aware channel capacity**  
-   Capacity estimated using empirical residual resampling and a DualNet/flow-based estimator.
-
-3. **Pairwise Granger causality**  
-   A standard baseline method for directed interaction estimation.
-
-The input is a multivariate time-series matrix:
+Effective-connectivity estimation from brain-signal measurements often relies on Gaussian residual assumptions. This code estimates directed interactions using a finite-impulse-response channel model. The input is a multivariate time-series matrix:
 
 ```matlab
 nTimepoints x nROI
@@ -32,7 +25,7 @@ where each column is the time series of one ROI.
 ## Repository Structure
 
 ```text
-cc-estimation-anonymous/
+EC-dual-flow/
 ├── README.md
 ├── startup.m
 ├── requirements.md
@@ -284,10 +277,9 @@ For blind review, identifying citation information is omitted.
 
 ```bibtex
 @misc{anonymous2026distributionawarecc,
-  title  = {Beyond Gaussian Assumptions in Brain Effective Connectivity: Distribution-Aware Channel Capacity with Adversarial Flows},
+  title  = {Beyond Gaussian Assumptions in Effective Connectivity: Distribution-Aware Channel Capacity with Adversarial Flows},
   author = {Anonymous},
   year   = {2026},
-  note   = {Anonymized supplementary code for double-blind review}
 }
 ```
 
